@@ -1,0 +1,22 @@
+.main{
+	min-height: 100vh;
+	background-image: linear-gradient(-150deg, #FB5E0B, #fb5f0b98);
+}
+.ipm{
+	color: #8BC34A;
+}
+.offre{
+	display: flex;
+	flex-direction: column;
+}
+.col-5, .col-7{
+	border: 1px solid red;
+}
+.image-offre{
+	height: 50vh;
+	text-align: center;
+}
+.image-offre img{
+	height: 100%;
+	margin: auto;
+}
