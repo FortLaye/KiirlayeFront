@@ -1,0 +1,15 @@
+.main{
+	min-height: 94vh;
+	padding-top: 3vh;
+	background-image: linear-gradient(-150deg, #FB5E0B 20%, #fb5f0bd9), url("src/assets/images/bg-ridwan.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.ipm{
+	color: #8BC34A;
+}
+.offre{
+	display: flex;
+	flex-direction: column;
+}
+

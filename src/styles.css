@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Open+Sans&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root{
+	--orange: #FB5E0B;
+	--vert: #8BC34A;
+}
+html, body { 
+	height: 100%; 
+	font-family: 'Montserrat', sans-serif;
+}
+body { 
+	margin: 0;
+}

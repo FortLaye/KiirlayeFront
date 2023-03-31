@@ -1,0 +1,118 @@
+
+* { box-sizing:border-box; }
+
+body {
+  background: #eee;
+  -webkit-font-smoothing: antialiased;
+}
+
+hgroup { 
+  text-align:center;
+  margin-top: 4em;
+}
+
+span {
+    font-size: 0.95em;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+
+/*------------------------------------------------------------------
+[ Login Form ]*/
+
+.log-form {
+  width: 70%;
+  margin: 10em auto 2em auto;
+  padding: 3em 2em 2em 2em;
+  border-radius: 2%;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+}
+
+@media only screen and (max-width: 767px) {
+  .log-form{
+    width: 100%;
+  }
+}
+
+.group { 
+  position: relative; 
+  margin-bottom: 45px; 
+}
+
+.log-input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  /* -webkit-appearance: none; */
+  display: block;
+  background: #fafafa;
+  color: #636363;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.log-input:focus { outline: none; }
+
+.log-form a {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+}
+
+.left-align {
+    float: left;
+    text-align: left;
+}
+
+.right-align {
+    float: right;
+    text-align: right;
+}
+.btn{
+	background-color: var(--vert);
+	color: #fff;
+}
+input:focus{
+	border: none;
+	outline: none;
+}
+mat-form-field{
+  background-color: transparent;
+}
+/*------------------------------------------------------------------
+[ Button same code as contact form ]*/
+
+input[type="text"], input[type="email"], input[type="password"], input[type="phone"], textarea, select {
+    background: transparent;
+    border: none;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    line-height: 24px;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-transform: none;
+    width: 100%;
+}
+
+input[type="checkbox"]:not(:checked) + label, input[type="checkbox"]:checked + label {
+    color: #aaaaaa;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    padding-left: 10px;
+    padding-top: 6px;
+    position: relative;
+    text-transform: uppercase;
+}
+

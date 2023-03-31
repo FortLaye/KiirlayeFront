@@ -1,0 +1,51 @@
+<section class="mt-5">
+
+	<hgroup class="text-light mt-5">
+	    <h2>Bienvenus sur KIIRLAY !</h2>
+		<p class="auth">
+			Veuillez renseignez vos informations de connexion
+		</p>
+	</hgroup>
+
+		<form [formGroup]="loginForm" class ="log-form shadow">
+			
+			<div *ngIf="isError" class="alert alert-danger" role="alert">
+				{{ msgError }}
+			</div>
+			
+			<div class="log-input border-0 mb-4">
+				<mat-radio-group [formControl]="preferenceLoginCtrl">
+					<mat-radio-button value="email" class="ms-xxl-3">Email</mat-radio-button>
+					<mat-radio-button value="phone" class="ms-xxl-5">Téléphone</mat-radio-button>
+					<mat-radio-button value="ipm" class="ms-xxl-4">Numéro IPM</mat-radio-button>
+				</mat-radio-group>
+			</div>
+
+			<mat-form-field appearance="outline" class="log-input my-3" *ngIf="showEmailField$ | async">
+				<input type="text" matInput id = "email" formControlName="email" placeholder = "Email">
+				<mat-error> {{ getFormCtrlEorrors(emailCtrl) }} </mat-error>
+			</mat-form-field>
+
+			<mat-form-field appearance="outline" class="log-input my-3" *ngIf="showPhoneField$ | async">
+				<input type="phone" matInput id = "phone" formControlName="phone" placeholder = "Téléphone">
+				<mat-error>{{ getFormCtrlEorrors(phoneCtrl) }}</mat-error>
+			</mat-form-field>
+
+			<mat-form-field appearance="outline" class="log-input my-3" *ngIf="showNumIpmField$ | async">
+				<input type="text" matInput id = "numIpm" formControlName="numIpm" placeholder = "Numéro IPM">
+				<mat-error>{{ getFormCtrlEorrors(numIpmCtrl) }}</mat-error>
+			</mat-form-field>
+	
+			<mat-form-field appearance="outline" class="log-input my-3">
+				<input matInput type="password" id = "password" formControlName="password"  placeholder = "Password">
+				<mat-error>Ce champ est obligatoire !</mat-error>
+			</mat-form-field>
+			
+			<div class="row log-input submit-btn d-flex justify-content-between align-items-end text-end p-0">
+				<span class="col-md-6 text-center"><a href="#">Mot de passe oublié ?</a></span>
+				<button class="col-md-6 btn p-2 fs-5 m-0" type="button" (click)="login()">Connexion</button>
+			</div>
+		</form>
+
+
+</section> 
