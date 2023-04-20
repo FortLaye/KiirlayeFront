@@ -17,14 +17,18 @@ export class AuthentificationService {
     this.token = this.tokenSubject.asObservable();
   }
 
+  // login(userAuth: LoggedUser):Observable<any>{
+  //     return this.http.post<any>(environment.apiUrl+"/security/login", userAuth).pipe(
+  //       map(res => {
+  //         localStorage.setItem('token', JSON.stringify(res.token))
+  //         this.tokenSubject.next(res.token)
+  //         return res
+  //       })
+  //     )
+  // }
+
   login(userAuth: LoggedUser):Observable<any>{
-      return this.http.post<any>(environment.apiUrl+"/login", userAuth).pipe(
-        map(res => {
-          localStorage.setItem('token', JSON.stringify(res.token))
-          this.tokenSubject.next(res.token)
-          return res
-        })
-      )
+    return this.http.post<any>(environment.apiUrl+"/security/login", userAuth);
   }
 
   public get tokenValue(){

@@ -1,4 +1,43 @@
-mat-toolbar{
-	background-color: var(--orande);
-	color: #fff;
+.sidebar{
+	display: flex;
+	justify-content: end;
+}
+.side-nav .nav-menu {
+  height: 100%;
+  list-style: none;
+  padding: 40px 0;
+  width: 90%;
+  padding-left: 10%;
+  margin-left: 5%;
+  background-color: var(--orange);
+}
+.side-nav .nav-item {
+  /* position: relative; */
+  padding: 3% 0 3% 8%;
+  margin: 20px 0;
+  font-size: 1.3em;
+  border-radius: 30px 0 0 30px;
+}
+.nav-item:hover{
+	background-color: #ffffff42;
+}
+.nav-item.active {
+  background-color: var(--white);
+  /* box-shadow: 0px -3px rgba(0, 0, 0, 0.2), 0px 3px rgba(0, 0, 0, 0.2); */
+}
+.nav-item.active a {
+  color: #364129;
+}
+.nav-item a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 2.5% 0;
+  color: #fff;
+  width: 100%;
+}
+.menu-text {
+  padding: 0 20px;
+}
+.title{
+	border-bottom: 8px solid var(--vert);
 }
