@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { AuthentificationService } from '../../services/authentification.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-principal',
@@ -14,7 +14,6 @@ export class MenuPrincipalComponent implements OnInit{
                 private route: Router){}
 
     ngOnInit(): void {
-
         $(function() {
             $("li").click(function(e) {
                 e.preventDefault();

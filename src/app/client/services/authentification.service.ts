@@ -7,6 +7,7 @@ import { LoggedUser, User } from '../models/user';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthentificationService {
 
   private tokenSubject!: BehaviorSubject<string | null>;
@@ -17,19 +18,19 @@ export class AuthentificationService {
     this.token = this.tokenSubject.asObservable();
   }
 
-  // login(userAuth: LoggedUser):Observable<any>{
-  //     return this.http.post<any>(environment.apiUrl+"/security/login", userAuth).pipe(
-  //       map(res => {
-  //         localStorage.setItem('token', JSON.stringify(res.token))
-  //         this.tokenSubject.next(res.token)
-  //         return res
-  //       })
-  //     )
-  // }
-
   login(userAuth: LoggedUser):Observable<any>{
-    return this.http.post<any>(environment.apiUrl+"/security/login", userAuth);
+      return this.http.post<any>(environment.apiUrl+"/security/login", userAuth).pipe(
+        map(res => {
+            localStorage.setItem('token', JSON.stringify('qdhuzecjsdncijsnmcjnqsn'))
+            this.tokenSubject.next(res.token)
+            return res
+        }) 
+      )
   }
+
+  // login(userAuth: LoggedUser):Observable<any>{
+  //   return this.http.post<any>(environment.apiUrl+"/security/login", userAuth);
+  // }
 
   public get tokenValue(){
     return this.tokenSubject.value

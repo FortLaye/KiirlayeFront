@@ -42,25 +42,18 @@ export class AuthFormComponent implements OnInit{
       }
   }
 
-  login(){
-    this.authService.login(this.loginForm.value).subscribe(
-      value => {
-        console.log(value)
-      }
-    )
-    
-    // console.log(this.loginForm.value);
-    
-    // this.authService.login(this.loginForm.value).subscribe(
-    //    () => {
-    //       this.router.navigateByUrl('/client/menus-principal')
-    //    },
-    //    (error) => {
-    //       this.msgError = error.error.message
-    //       this.isError = true;
-    //    }
-    // );
-  }
+   login(){
+      this.authService.login(this.loginForm.value).subscribe(
+        () => {
+            this.router.navigateByUrl('/client/menus-principal/dashboard')
+        },
+        (error) => {
+            this.msgError = error.error.message
+            this.isError = true;
+        }
+      );
+    }
 
 }
 
+ 
