@@ -1,0 +1,7 @@
+.card{
+	box-shadow: var(--shadow);
+	cursor: pointer;
+}
+.card:hover, .active-link{
+	background-color: var(--lightVert);
+}

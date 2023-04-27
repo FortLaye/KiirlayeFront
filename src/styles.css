@@ -4,7 +4,9 @@
 :root{
 	--orange: #FB5E0B;
 	--vert: #8BC34A;
+	--lightVert: #8bc34a5f;
 	--white: #ffffff;
+	--shadow: 0 0 4px 2px gainsboro;
 }
 html, body { 
 	height: 100%; 

@@ -10,6 +10,7 @@
   padding-left: 10%;
   margin-left: 5%;
   background-color: var(--orange);
+  box-shadow: var(--shadow);
 }
 .side-nav .nav-item {
   /* position: relative; */
@@ -55,10 +56,43 @@
   height: 90%;
 }
 .logo-titre .titre{
-  color: var(--vert);
+  color: #364129;
 }
 .main-content{
   box-sizing: border-box;
-  height: 88%;
+  height: 88.5%;
+  padding: 1%;
   background-color: #eee;
+  border-radius: 8px;
+}
+
+.card{
+
+  background-color: #fff;
+  padding: 15px;
+  border:none;
+}
+
+.input-box{
+  position: relative;
+}
+
+.input-box i {
+  position: absolute;
+  right: 13px;
+  top:12px;
+  color:#ced4da;
+
+}
+.search-help{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+input[type='search']:focus{
+  box-shadow: none;
+  border-color: var(--vert);
+}
+.btn{
+  background-color: #fff;
 }

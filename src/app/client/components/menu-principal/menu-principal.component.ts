@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { AuthentificationService } from '../../services/authentification.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-menu-principal',
@@ -12,8 +14,15 @@ export class MenuPrincipalComponent implements OnInit{
 
     constructor(private auth: AuthentificationService,
                 private route: Router){}
+    user!: User | null
 
     ngOnInit(): void {
+        const decodedToken: any = jwt_decode(localStorage.getItem('token')!);
+        this.auth.getUserConnected(decodedToken.jti).subscribe(
+            value => {
+                this.user = value;
+            }
+        )
         $(function() {
             $("li").click(function(e) {
                 e.preventDefault();
@@ -21,7 +30,6 @@ export class MenuPrincipalComponent implements OnInit{
                 $(this).addClass("active");
             });
         });
-
     }
 
     logout(){

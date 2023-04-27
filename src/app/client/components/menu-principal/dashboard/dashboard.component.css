@@ -1,0 +1,8 @@
+.container-fluid{
+	height: 82%;
+}
+.row{
+	box-sizing: border-box;
+	box-shadow: var(--shadow);
+	border-radius: 5px;
+}

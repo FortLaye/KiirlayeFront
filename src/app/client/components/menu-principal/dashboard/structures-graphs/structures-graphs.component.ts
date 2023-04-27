@@ -1,0 +1,49 @@
+import { Component, OnInit } from '@angular/core';
+import Chart from 'chart.js/auto';
+
+@Component({
+  selector: 'app-structures-graphs',
+  templateUrl: './structures-graphs.component.html',
+  styleUrls: ['./structures-graphs.component.css']
+})
+export class StructuresGraphsComponent implements OnInit {
+
+  public chart!: any
+
+  ngOnInit(): void {
+      this.createChart()
+  }
+
+  createChart(){
+  
+    this.chart = new Chart("MyLineChart", {
+      type: 'line', //this denotes tha type of chart
+
+      data: {// values on X-Axis
+        labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
+								 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+	       datasets: [
+          {
+            label: "Sales",
+            data: ['467','576', '572', '79', '92',
+								 '574', '573', '576'],
+            tension: 0.5,
+            backgroundColor: '#8BC34A'
+          },
+          {
+            label: "Profit",
+            data: ['542', '542', '536', '327', '17',
+									 '0.00', '538', '541'],
+            tension: 0.5,
+            backgroundColor: '#FB5E0B'
+          }  
+        ]
+      },
+      options: {
+        aspectRatio:2.2
+      }
+      
+    });
+  }
+
+}

@@ -6,11 +6,18 @@ import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './components/menu-principal/dashboard/dashboard.component';
 import { EntreprisesComponent } from './components/menu-principal/entreprises/entreprises.component';
 import { StructuresComponent } from './components/menu-principal/structures/structures.component';
+import { EntreprisesGraphsComponent } from './components/menu-principal/dashboard/entreprises-graphs/entreprises-graphs.component';
+import { StructuresGraphsComponent } from './components/menu-principal/dashboard/structures-graphs/structures-graphs.component';
+import { AdherantsGraphsComponent } from './components/menu-principal/dashboard/adherants-graphs/adherants-graphs.component';
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
   {path: 'menus-principal', component: MenuPrincipalComponent, canActivate: [AuthGuard], children: [
-    {path: 'dashboard', component: DashboardComponent},
+    {path: 'dashboard', component: DashboardComponent, children: [
+      {path: 'entreprises-graphs', component: EntreprisesGraphsComponent},
+      {path: 'structures-graphs', component: StructuresGraphsComponent},
+      {path: 'adherants-graphs', component: AdherantsGraphsComponent}
+    ]},
     {path: 'entreprises', component: EntreprisesComponent},
     {path: 'structures', component: StructuresComponent}
   ]},

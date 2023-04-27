@@ -27,7 +27,7 @@ export class AuthFormComponent implements OnInit{
 
   private initForm(){
     this.loginForm = this.fb.group({
-      login: ['', Validators.required, Validators.minLength(9)],
+      login: ['', [Validators.required, Validators.minLength(9)]],
       password: ['', Validators.required]
     })
   }
@@ -45,7 +45,7 @@ export class AuthFormComponent implements OnInit{
    login(){
       this.authService.login(this.loginForm.value).subscribe(
         () => {
-            this.router.navigateByUrl('/client/menus-principal/dashboard')
+            this.router.navigateByUrl('/client/menus-principal/dashboard/entreprises-graphs')
         },
         (error) => {
             this.msgError = error.error.message
