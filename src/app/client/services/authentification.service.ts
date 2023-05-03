@@ -29,6 +29,7 @@ export class AuthentificationService {
   login(userAuth: LoggedUser):Observable<any>{
       return this.http.post<any>(environment.apiUrl+"/security/login", userAuth).pipe(
         map(res => {
+            console.log(res)
             const decodedToken: any = jwt_decode(res.token)
             this.getUserConnected(decodedToken.jti).subscribe(
               value => {

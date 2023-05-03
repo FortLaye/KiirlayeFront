@@ -1,6 +1,6 @@
 .sidebar{
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 }
 .side-nav .nav-menu {
   height: 100%;
@@ -86,7 +86,7 @@
 }
 .search-help{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 input[type='search']:focus{
