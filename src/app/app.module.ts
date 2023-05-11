@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpInterceptorProvider } from './client/interceptors';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    HttpInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

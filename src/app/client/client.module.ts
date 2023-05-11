@@ -14,6 +14,7 @@ import { CardDataComponent } from './components/menu-principal/dashboard/card-da
 import { EntreprisesGraphsComponent } from './components/menu-principal/dashboard/entreprises-graphs/entreprises-graphs.component';
 import { StructuresGraphsComponent } from './components/menu-principal/dashboard/structures-graphs/structures-graphs.component';
 import { AdherantsGraphsComponent } from './components/menu-principal/dashboard/adherants-graphs/adherants-graphs.component';
+import { SignedUserResolver } from './resolvers/signed-user.resolver';
 
 
 @NgModule({
@@ -38,6 +39,9 @@ import { AdherantsGraphsComponent } from './components/menu-principal/dashboard/
   exports: [
     OffreSliderComponent,
     AuthFormComponent
+  ],
+  providers: [
+    SignedUserResolver
   ]
 })
 export class ClientModule { }

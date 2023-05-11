@@ -8,8 +8,9 @@
 	</hgroup>
 
 	<form [formGroup]="loginForm" class ="log-form shadow">
-		<div *ngIf="isError" class="alert alert-danger" role="alert">
+		<div *ngIf="isError" class="alert alert-danger alert-dismissible show fade" role="alert">
 			{{ msgError }}
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 		</div>
 
 		<mat-form-field appearance="outline" class="log-input my-3">
@@ -22,9 +23,13 @@
 			<mat-error>Ce champ est obligatoire !</mat-error>
 		</mat-form-field>
 		
-		<div class="row log-input submit-btn d-flex justify-content-between align-items-end text-end p-0">
-			<span class="col-md-6 text-center"><a href="#">Mot de passe oublié ?</a></span>
-			<button class="col-md-6 btn p-2 fs-5 m-0" type="button" (click)="login()">Connexion</button>
+		<div class="row log-input submit-btn d-flex justify-content-between align-items-center text-end p-0">
+			<button class="col-md-6 btn p-2 fs-5 ms-3" type="button" (click)="login()">
+				Connexion
+			</button>
+			<div class="spinner-border d-none" role="status">
+  				<span class="visually-hidden">Loading...</span>
+			</div>
 		</div>
 	</form>
 

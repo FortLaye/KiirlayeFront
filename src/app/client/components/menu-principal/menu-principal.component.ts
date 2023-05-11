@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { AuthentificationService } from '../../services/authentification.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 import { User } from '../../models/user';
 
@@ -13,14 +13,15 @@ import { User } from '../../models/user';
 export class MenuPrincipalComponent implements OnInit{
 
     constructor(private auth: AuthentificationService,
-                private route: Router){}
+                private route: Router,
+                private activeRoute: ActivatedRoute){}
+                
     user!: User | null
 
     ngOnInit(): void {
-        const decodedToken: any = jwt_decode(localStorage.getItem('token')!);
-        this.auth.getUserConnected(decodedToken.jti).subscribe(
+        this.activeRoute.data.subscribe(
             value => {
-                this.user = value;
+                this.user = value['user']
             }
         )
         $(function() {
@@ -36,5 +37,6 @@ export class MenuPrincipalComponent implements OnInit{
         this.auth.logOut();
         this.route.navigateByUrl('/client/login');
     }
+    
 
 }

@@ -9,10 +9,11 @@ import { StructuresComponent } from './components/menu-principal/structures/stru
 import { EntreprisesGraphsComponent } from './components/menu-principal/dashboard/entreprises-graphs/entreprises-graphs.component';
 import { StructuresGraphsComponent } from './components/menu-principal/dashboard/structures-graphs/structures-graphs.component';
 import { AdherantsGraphsComponent } from './components/menu-principal/dashboard/adherants-graphs/adherants-graphs.component';
+import { SignedUserResolver } from './resolvers/signed-user.resolver';
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
-  {path: 'menus-principal', component: MenuPrincipalComponent, canActivate: [AuthGuard], children: [
+  {path: 'menus-principal', component: MenuPrincipalComponent, canActivate: [AuthGuard], resolve: {user: SignedUserResolver}, children: [
     {path: 'dashboard', component: DashboardComponent, children: [
       {path: 'entreprises-graphs', component: EntreprisesGraphsComponent},
       {path: 'structures-graphs', component: StructuresGraphsComponent},

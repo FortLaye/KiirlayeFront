@@ -33,14 +33,14 @@ export class AuthentificationService {
             const decodedToken: any = jwt_decode(res.token)
             this.getUserConnected(decodedToken.jti).subscribe(
               value => {
-                this.currentUser.next(value);          
+                this.currentUser.next(value);    
               }
             )
             localStorage.setItem('token', JSON.stringify(res.token))
             this.tokenSubject.next(res.token)
             return res
         }) 
-      )
+      ) 
   }
 
   public get tokenValue(){

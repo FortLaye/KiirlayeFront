@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { Router } from '@angular/router';
 import { AuthentificationService } from 'src/app/client/services/authentification.service';
 
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-auth-form',
@@ -23,6 +24,7 @@ export class AuthFormComponent implements OnInit{
 
   ngOnInit(): void {
     this.initForm();
+    $('.spinner-border').addClass('d-none');
   }
 
   private initForm(){
@@ -43,6 +45,8 @@ export class AuthFormComponent implements OnInit{
   }
 
    login(){
+      
+     $('.spinner-border').removeClass('d-none');
       this.authService.login(this.loginForm.value).subscribe(
         () => {
             this.router.navigateByUrl('/client/menus-principal/dashboard/entreprises-graphs')
@@ -50,6 +54,7 @@ export class AuthFormComponent implements OnInit{
         (error) => {
             this.msgError = error.error.message
             this.isError = true;
+            $('.spinner-border').addClass('d-none');
         }
       );
     }
