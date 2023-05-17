@@ -38,5 +38,5 @@ export class MenuPrincipalComponent implements OnInit{
         this.route.navigateByUrl('/client/login');
     }
     
-
+ 
 }

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {
-  Router, Resolve,
+  Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { LoggedUser, User } from '../models/user';
+import { Observable } from 'rxjs';
+import { User } from '../models/user';
 import { AuthentificationService } from '../services/authentification.service';
 import jwt_decode from 'jwt-decode';
 

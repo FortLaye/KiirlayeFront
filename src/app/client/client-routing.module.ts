@@ -10,6 +10,8 @@ import { EntreprisesGraphsComponent } from './components/menu-principal/dashboar
 import { StructuresGraphsComponent } from './components/menu-principal/dashboard/structures-graphs/structures-graphs.component';
 import { AdherantsGraphsComponent } from './components/menu-principal/dashboard/adherants-graphs/adherants-graphs.component';
 import { SignedUserResolver } from './resolvers/signed-user.resolver';
+import { EntrepriseResolver } from './resolvers/entreprise.resolver';
+import { ListEntreprisesComponent } from "./components/menu-principal/entreprises/list-entreprises/list-entreprises.component";
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
       {path: 'structures-graphs', component: StructuresGraphsComponent},
       {path: 'adherants-graphs', component: AdherantsGraphsComponent}
     ]},
-    {path: 'entreprises', component: EntreprisesComponent},
+    {path: 'entreprises', component: EntreprisesComponent , children: [
+        {path: 'list-entreprises', component: ListEntreprisesComponent},
+      ] },
     {path: 'structures', component: StructuresComponent}
   ]},
   {path: 'login', component: AuthentificationComponent},
@@ -32,3 +36,4 @@ const routes: Routes = [
 })
 
 export class ClientRoutingModule { }
+
