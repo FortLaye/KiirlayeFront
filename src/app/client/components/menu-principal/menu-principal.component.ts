@@ -15,15 +15,22 @@ export class MenuPrincipalComponent implements OnInit{
     constructor(private auth: AuthentificationService,
                 private route: Router,
                 private activeRoute: ActivatedRoute){}
-                
+
     user!: User | null
 
     ngOnInit(): void {
-        this.activeRoute.data.subscribe(
+        /*this.activeRoute.data.subscribe(
             value => {
                 this.user = value['user']
             }
-        )
+        )*/
+      const decodedToken: any = jwt_decode(localStorage.getItem('token')!)
+      this.auth.getUserConnected(decodedToken.userId).subscribe(
+        value => {
+          this.user = value;
+        }
+      )
+
         $(function() {
             $("li").click(function(e) {
                 e.preventDefault();
@@ -37,6 +44,6 @@ export class MenuPrincipalComponent implements OnInit{
         this.auth.logOut();
         this.route.navigateByUrl('/client/login');
     }
-    
- 
+
+
 }

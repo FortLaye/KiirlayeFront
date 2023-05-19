@@ -17,7 +17,7 @@ export class AuthentificationService {
   currentUser!: BehaviorSubject<User | null>
   userSubject!: Observable<User | null>
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.tokenSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('token')!));
     this.token = this.tokenSubject.asObservable();
 
@@ -27,21 +27,30 @@ export class AuthentificationService {
   }
 
   login(userAuth: LoggedUser):Observable<any>{
+    return this.http.post<any>(environment.testUrl+"/security/login", userAuth).pipe(
+      map(res => {
+        localStorage.setItem('token', JSON.stringify(res.token))
+        this.tokenSubject.next(res.token)
+      })
+    )
+  }
+
+  /*login(userAuth: LoggedUser):Observable<any>{
       return this.http.post<any>(environment.apiUrl+"/security/login", userAuth).pipe(
         map(res => {
             console.log(res)
             const decodedToken: any = jwt_decode(res.token)
             this.getUserConnected(decodedToken.jti).subscribe(
               value => {
-                this.currentUser.next(value);    
+                this.currentUser.next(value);
               }
             )
             localStorage.setItem('token', JSON.stringify(res.token))
             this.tokenSubject.next(res.token)
             return res
-        }) 
-      ) 
-  }
+        })
+      )
+  }*/
 
   public get tokenValue(){
     return this.tokenSubject.value
@@ -50,14 +59,14 @@ export class AuthentificationService {
   public get isConnected(){
     return (this.tokenSubject.value !== null) ? true : false
   }
-  
+
   logOut(){
     localStorage.removeItem('token');
     this.tokenSubject.next(null);
   }
 
   getUserConnected(idUser: number):Observable<User>{
-    return this.http.get<User>(environment.apiUrl+`/users/${idUser}`)
+    return this.http.get<User>(environment.testUrl+`/users/${idUser}`)
   }
 
   public get userValue(){

@@ -12,10 +12,13 @@ import { AdherantsGraphsComponent } from './components/menu-principal/dashboard/
 import { SignedUserResolver } from './resolvers/signed-user.resolver';
 import { EntrepriseResolver } from './resolvers/entreprise.resolver';
 import { ListEntreprisesComponent } from "./components/menu-principal/entreprises/list-entreprises/list-entreprises.component";
+import {
+  ItemEntreprisesComponent
+} from "./components/menu-principal/entreprises/item-entreprises/item-entreprises.component";
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
-  {path: 'menus-principal', component: MenuPrincipalComponent, canActivate: [AuthGuard], resolve: {user: SignedUserResolver}, children: [
+  {path: 'menus-principal', component: MenuPrincipalComponent, canActivate: [AuthGuard], children: [
     {path: 'dashboard', component: DashboardComponent, children: [
       {path: 'entreprises-graphs', component: EntreprisesGraphsComponent},
       {path: 'structures-graphs', component: StructuresGraphsComponent},
@@ -23,6 +26,7 @@ const routes: Routes = [
     ]},
     {path: 'entreprises', component: EntreprisesComponent , children: [
         {path: 'list-entreprises', component: ListEntreprisesComponent},
+        {path: ':id', component: ItemEntreprisesComponent},
       ] },
     {path: 'structures', component: StructuresComponent}
   ]},

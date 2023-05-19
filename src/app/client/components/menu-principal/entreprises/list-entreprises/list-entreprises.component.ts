@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {EntreprisesService} from "../../../../services/entreprises.service";
+import {Observable} from "rxjs";
+import {Entreprise} from "../../../../models/entreprise";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-entreprises',
@@ -7,13 +10,16 @@ import {EntreprisesService} from "../../../../services/entreprises.service";
   styleUrls: ['./list-entreprises.component.css']
 })
 export class ListEntreprisesComponent implements OnInit{
-  constructor(private entrepriseService: EntreprisesService){}
+  constructor(private entrepriseService: EntreprisesService,
+              private router: Router){}
+
+  entreprises$!: Observable<Entreprise[]>;
   ngOnInit(): void {
-      this.entrepriseService.getAllEntreprises().subscribe(
-        value => {
-          console.log(value)
-        }
-      )
+      this.entreprises$ = this.entrepriseService.getAllEntreprises()
+  }
+
+  onShowEntreprise(id: number){
+    this.router.navigateByUrl('/client/menus-principal/entreprises/'+id);
   }
 
 }
