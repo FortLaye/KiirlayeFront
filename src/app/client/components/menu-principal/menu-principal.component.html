@@ -6,23 +6,23 @@
 				<li class="title mb-5 pb-3">
 					<span class="text-light h5 text-uppercase">ridwan group</span>
 				</li>
-				<li class="nav-item active" [routerLink]="['dashboard/entreprises-graphs']">
-					<a href="#">
+				<li class="nav-item" [routerLink]="['dashboard/entreprises-graphs']" routerLinkActive="activ-link">
+					<a>
 						<i class="fas fa-tachometer-alt"></i><span class="menu-text">Dashboard</span>
 					</a>
 				</li>
-				<li class="nav-item" [routerLink]="['entreprises/list-entreprises']">
-					<a href="#">
+				<li class="nav-item" [routerLink]="['entreprises/list-entreprises']" routerLinkActive="activ-link">
+					<a>
 						<i class="fa-sharp fa-solid fa-building"></i><span class="menu-text">Entreprises</span>
 					</a>
 				</li>
-				<li class="nav-item" [routerLink]="['structures']">
-					<a href="#">
+				<li class="nav-item" [routerLink]="['structures']" routerLinkActive="activ-link">
+					<a>
 						<i class="fa-sharp fa-solid fa-hospital-user"></i><span class="menu-text">Structures</span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="#" (click)="logout()">
+					<a (click)="logout()">
 						<i class="fas fa-sign-out-alt"></i><span class="menu-text">exit</span>
 					</a>
 				</li>
