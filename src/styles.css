@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Montserrat:ital,wght@0,500;1,500&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
 
 :root{
 	--orange: #FB5E0B;
@@ -8,10 +9,10 @@
 	--white: #ffffff;
 	--shadow: 0 0 4px 2px gainsboro;
 }
-html, body { 
-	height: 100%; 
-	font-family: 'Fira Sans', sans-serif;
+html, body {
+	height: 100%;
+  font-family: 'Comic Neue', cursive !important;
 }
-body { 
+body {
 	margin: 0;
 }

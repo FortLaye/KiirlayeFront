@@ -15,6 +15,7 @@ import { ListEntreprisesComponent } from "./components/menu-principal/entreprise
 import {
   ItemEntreprisesComponent
 } from "./components/menu-principal/entreprises/item-entreprises/item-entreprises.component";
+import {AddEntrepriseComponent} from "./components/menu-principal/entreprises/add-entreprise/add-entreprise.component";
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
     ]},
     {path: 'entreprises', component: EntreprisesComponent , children: [
         {path: 'list-entreprises', component: ListEntreprisesComponent},
+        {path:'add-entreprises', component: AddEntrepriseComponent},
         {path: ':id', component: ItemEntreprisesComponent},
       ] },
     {path: 'structures', component: StructuresComponent}

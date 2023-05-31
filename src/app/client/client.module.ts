@@ -17,6 +17,7 @@ import { AdherantsGraphsComponent } from './components/menu-principal/dashboard/
 import { SignedUserResolver } from './resolvers/signed-user.resolver';
 import { ListEntreprisesComponent } from './components/menu-principal/entreprises/list-entreprises/list-entreprises.component';
 import { ItemEntreprisesComponent } from './components/menu-principal/entreprises/item-entreprises/item-entreprises.component';
+import { AddEntrepriseComponent } from './components/menu-principal/entreprises/add-entreprise/add-entreprise.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ItemEntreprisesComponent } from './components/menu-principal/entreprise
     AdherantsGraphsComponent,
     ListEntreprisesComponent,
     ItemEntreprisesComponent,
+    AddEntrepriseComponent,
   ],
   imports: [
     CommonModule,
