@@ -19,10 +19,10 @@
           <span class="progress-count">3</span>
           <span class="progress-label">Contrat</span>
         </li>
-  
+
       </ul>
     </div>
-    
+
   <!--   ############## Progress Bar View  end ###########################-->
 
   <form *ngIf="step == 1" name="myform"[formGroup]="coordonnees" class="form-group">
@@ -30,7 +30,7 @@
         <div class="col-md-12 mt-3">
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Raison Social" formControlName="raisonSocial" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['raisonSocial']!.errors}">
+            <input class="form-control rounded-end" type="text" placeholder="Raison Social" formControlName="nomEntreprise" >
           </div>
           </div>
       </div>
@@ -38,32 +38,32 @@
         <div class="col-md-6 ">
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Ninea" formControlName="ninea" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['ninea']!.errors}">
+            <input class="form-control rounded-end" type="text" placeholder="Ninea" formControlName="ninea" >
           </div>
         </div>
         <div class="col-md-6">
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Registre De Commerce" formControlName="registreDeCommerce" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['registreDeCommerce']!.errors}">
+            <input class="form-control rounded-end" type="text" placeholder="Registre De Commerce" formControlName="numRegCommerce" >
           </div>
         </div>
       </div>
 
 
-      <div class="row p-3">
+      <div class="row p-3" formGroupName="adresse">
         <div class="col-sm-12 border border-secondary-subtle rounded-4 ">
           <div class="mt-n2 col-sm-1"><span class="ms-3">Adresse</span></div>
           <div class="row mb-2 mt-1 gy-4">
             <div class="col-sm-6">
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Pays" formControlName="pays" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['pays']!.errors}">
+                <input class="form-control rounded-end" type="text" placeholder="Pays" formControlName="pays" >
               </div>
             </div>
             <div class="col-sm-6">
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Region" formControlName="region" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['region']!.errors}">
+                <input class="form-control rounded-end" type="text" placeholder="Region" formControlName="region" >
               </div>
             </div>
           </div>
@@ -71,13 +71,13 @@
             <div class="col-sm-6">
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Ville" formControlName="ville" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['ville']!.errors}">
+                <input class="form-control rounded-end" type="text" placeholder="Ville" formControlName="ville" >
               </div>
             </div>
             <div class="col-sm-6">
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Departement" formControlName="departement" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['departement']!.errors}">
+                <input class="form-control rounded-end" type="text" placeholder="Departement" formControlName="departement" >
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@
             <div class="col-sm-12">
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Rue de l'entreprise" formControlName="rueDelentreprise" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['rueDelentreprise']!.errors}">
+                <input class="form-control rounded-end" type="text" placeholder="Rue de l'entreprise" formControlName="rue_entrprise">
               </div>
             </div>
           </div>
@@ -97,19 +97,19 @@
         <div class="col-sm-6">
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="N Telephone" formControlName="telephone" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['telephone']!.errors}">
+            <input class="form-control rounded-end" type="text" placeholder="N Telephone" formControlName="numeroTelephone" >
           </div>
         </div>
         <div class="col-sm-6">
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Fax" formControlName="fax" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['fax']!.errors}">
+            <input class="form-control rounded-end" type="text" placeholder="Fax" formControlName="fax" >
           </div>
         </div>
         <div class="col-sm-6">
           <div class="input-group">
             <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Email" formControlName="email" [ngClass]="{'is-invalid': coordonnees_step && coordonnees.controls['email']!.errors}">
+            <input class="form-control rounded-end" type="text" placeholder="Email" formControlName="emailEntreprise" >
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@
 
     <div class="d-flex mt-4 justify-content-between">
       <button class="btn btn-success">Annuler</button>
-      <button class="btn btn-success" (click)="next()">Suivant</button>
+      <button class="btn btn-success" (click)="addEntreprise()">Suivant</button>
     </div>
   </form>
 
@@ -145,13 +145,13 @@
       <div class="col-md-6 ">
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Telephone" formControlName="telephone" [ngClass]="{'is-invalid': responsable_step && responsable.controls['telephone']!.errors}">
+          <input class="form-control rounded-end" type="text" placeholder="Telephone" formControlName="numeroTelephone" [ngClass]="{'is-invalid': responsable_step && responsable.controls['telephone']!.errors}">
         </div>
       </div>
       <div class="col-md-6">
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Fixe" formControlName="fixe" [ngClass]="{'is-invalid': responsable_step && responsable.controls['fixe']!.errors}">
+          <input class="form-control rounded-end" type="text" placeholder="Fixe" formControlName="fax" [ngClass]="{'is-invalid': responsable_step && responsable.controls['fixe']!.errors}">
         </div>
       </div>
     </div>
@@ -159,7 +159,7 @@
       <div class="col-sm-6">
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="email" placeholder="E-Mail" formControlName="mail" [ngClass]="{'is-invalid': responsable_step && responsable.controls['mail']!.errors}">
+          <input class="form-control rounded-end" type="email" placeholder="E-Mail" formControlName="emailEntreprise" [ngClass]="{'is-invalid': responsable_step && responsable.controls['mail']!.errors}">
         </div>
       </div>
       <div class="col-sm-6">

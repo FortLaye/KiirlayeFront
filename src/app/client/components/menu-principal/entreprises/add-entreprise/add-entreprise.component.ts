@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {EntreprisesService} from "../../../../services/entreprises.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-entreprise',
@@ -18,21 +20,23 @@ export class AddEntrepriseComponent implements OnInit{
   step = 1
   currentItem = ''
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private entrepriseService:EntreprisesService, private router:Router) {
   }
   ngOnInit(): void {
     this.coordonnees = this.formBuilder.group({
-      raisonSocial:['', Validators.required],
+      nomEntreprise:['', Validators.required],
       ninea:['', Validators.required],
-      registreDeCommerce:['', Validators.required],
-      pays:['', Validators.required],
-      region:['', Validators.required],
-      ville:['', Validators.required],
-      departement:['', [Validators.required,Validators.maxLength(12)]],
-      rueDelentreprise:['', Validators.required],
-      telephone:['', Validators.required],
+      numRegCommerce:['', Validators.required],
+      adresse:this.formBuilder.group({
+        pays: ['',Validators.required],
+        region: ['',Validators.required],
+        ville: ['',Validators.required],
+        departement: ['',Validators.required],
+        rue_entrprise: ['',Validators.required]
+      }),
+      numeroTelephone:['', Validators.required],
       fax:['', Validators.required],
-      email:['', Validators.required,Validators.email],
+      emailEntreprise:['', [Validators.required,Validators.email]],
     })
 
     this.responsable = this.formBuilder.group({
@@ -57,6 +61,16 @@ export class AddEntrepriseComponent implements OnInit{
     })
   }
 
+  addEntreprise(){
+    console.log(this.coordonnees.value)
+    if(this.coordonnees.valid){
+    this.entrepriseService.postEntreprise(this.coordonnees.value,1).subscribe(
+      ()=>{
+        this.router.navigateByUrl('/client/menus-principal/entreprises/list-entreprises')
+      }
+    )
+    }
+  }
   get coordonnees_details(){
     return this.coordonnees.controls;
   }

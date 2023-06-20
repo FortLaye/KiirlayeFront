@@ -27,7 +27,7 @@ export class AuthentificationService {
   }
 
   login(userAuth: LoggedUser):Observable<any>{
-    return this.http.post<any>(environment.testUrl+"/security/login", userAuth).pipe(
+    return this.http.post<any>(environment.apiUrl+"/security/login", userAuth).pipe(
       map(res => {
         localStorage.setItem('token', JSON.stringify(res.token))
         this.tokenSubject.next(res.token)
@@ -66,7 +66,7 @@ export class AuthentificationService {
   }
 
   getUserConnected(idUser: number):Observable<User>{
-    return this.http.get<User>(environment.testUrl+`/users/${idUser}`)
+    return this.http.get<User>(environment.apiUrl+`/users/${idUser}`)
   }
 
   public get userValue(){

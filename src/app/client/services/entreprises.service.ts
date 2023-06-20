@@ -12,8 +12,10 @@ export class EntreprisesService {
   constructor(private http: HttpClient) { }
 
   getAllEntreprises():Observable<Entreprise[]>{
-    return this.http.get<Entreprise[]>(`${environment.testUrl}/entreprises`)
+    return this.http.get<Entreprise[]>(`${environment.apiUrl}/entreprises`)
   }
 
-
+  postEntreprise(entreprise:Entreprise, id:number){
+    return this.http.post<Entreprise>(`${environment.apiUrl}/entreprises/agent/${id}/add`,entreprise)
+  }
 }

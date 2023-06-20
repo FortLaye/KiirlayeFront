@@ -18,10 +18,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of entreprises$ | async">
-          <td>{{ item.nom }}</td>
-          <td>{{ item.adresse }}</td>
-          <td>{{ item.phone }}</td>
-          <td>{{ item.ville }}</td>
+          <td>{{ item.nomEntreprise }}</td>
+          <td>{{ item.adresse.rue_entrprise }}</td>
+          <td>{{ item.numeroTelephone }}</td>
+          <td>{{ item.adresse.ville }}</td>
           <td>{{ item.ninea }}</td>
         <td>
             <button class="btn btn-sm btn-outline-warning mx-2" (click)="onShowEntreprise(item.id)">
