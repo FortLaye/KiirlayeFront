@@ -23,4 +23,5 @@ export class DetailsEntrepriseComponent implements OnInit{
   }
 
 
+  protected readonly ondragenter = ondragenter;
 }
