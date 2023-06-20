@@ -18,8 +18,13 @@ export class ListEntreprisesComponent implements OnInit{
       this.entreprises$ = this.entrepriseService.getAllEntreprises()
   }
 
-  onShowEntreprise(id: number){
+  onEditEntreprise(id: number){
     this.router.navigateByUrl('/client/menus-principal/entreprises/'+id);
   }
+
+  onShowEntreprise(id: number){
+    this.router.navigateByUrl(`/client/menus-principal/entreprises/details-entreprise/${id}`);
+  }
+
 
 }

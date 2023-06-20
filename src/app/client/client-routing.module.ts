@@ -16,6 +16,9 @@ import {
   ItemEntreprisesComponent
 } from "./components/menu-principal/entreprises/item-entreprises/item-entreprises.component";
 import {AddEntrepriseComponent} from "./components/menu-principal/entreprises/add-entreprise/add-entreprise.component";
+import {
+  DetailsEntrepriseComponent
+} from "./components/menu-principal/entreprises/details-entreprise/details-entreprise.component";
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
@@ -26,9 +29,11 @@ const routes: Routes = [
       {path: 'adherants-graphs', component: AdherantsGraphsComponent}
     ]},
     {path: 'entreprises', component: EntreprisesComponent , children: [
+
         {path: 'list-entreprises', component: ListEntreprisesComponent},
         {path:'add-entreprises', component: AddEntrepriseComponent},
         {path: ':id', component: ItemEntreprisesComponent},
+        {path: 'details-entreprise/:id',component: DetailsEntrepriseComponent}
       ] },
     {path: 'structures', component: StructuresComponent}
   ]},
