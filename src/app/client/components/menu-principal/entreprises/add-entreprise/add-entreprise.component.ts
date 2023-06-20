@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {EntreprisesService} from "../../../../services/entreprises.service";
 import {Router} from "@angular/router";
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-add-entreprise',
@@ -62,9 +63,11 @@ export class AddEntrepriseComponent implements OnInit{
   }
 
   addEntreprise(){
+    const decodedToken: any = jwt_decode(localStorage.getItem('token')!)
+    console.log(decodedToken.jti)
     console.log(this.coordonnees.value)
     if(this.coordonnees.valid){
-    this.entrepriseService.postEntreprise(this.coordonnees.value,1).subscribe(
+    this.entrepriseService.postEntreprise(this.coordonnees.value,decodedToken.jti).subscribe(
       ()=>{
         this.router.navigateByUrl('/client/menus-principal/entreprises/list-entreprises')
       }

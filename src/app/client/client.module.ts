@@ -18,6 +18,7 @@ import { SignedUserResolver } from './resolvers/signed-user.resolver';
 import { ListEntreprisesComponent } from './components/menu-principal/entreprises/list-entreprises/list-entreprises.component';
 import { ItemEntreprisesComponent } from './components/menu-principal/entreprises/item-entreprises/item-entreprises.component';
 import { AddEntrepriseComponent } from './components/menu-principal/entreprises/add-entreprise/add-entreprise.component';
+import { DetailsEntrepriseComponent } from './components/menu-principal/entreprises/details-entreprise/details-entreprise.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { AddEntrepriseComponent } from './components/menu-principal/entreprises/
     ListEntreprisesComponent,
     ItemEntreprisesComponent,
     AddEntrepriseComponent,
+    DetailsEntrepriseComponent,
   ],
   imports: [
     CommonModule,

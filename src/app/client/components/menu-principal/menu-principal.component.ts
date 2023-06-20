@@ -25,7 +25,7 @@ export class MenuPrincipalComponent implements OnInit{
             }
         )*/
       const decodedToken: any = jwt_decode(localStorage.getItem('token')!)
-      this.auth.getUserConnected(decodedToken.userId).subscribe(
+      this.auth.getUserConnected(decodedToken.jti).subscribe(
         value => {
           this.user = value;
         }
