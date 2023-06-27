@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Entreprise } from '../models/entreprise';
+import {Observable, of} from 'rxjs';
+import {Entreprise, pageEntreprise} from '../models/entreprise';
 import { environment } from 'src/environments/environment.development';
 import {adherent} from "../models/adherents";
 
@@ -9,12 +9,23 @@ import {adherent} from "../models/adherents";
   providedIn: 'root'
 })
 export class EntreprisesService {
-
+  entreprises!:Array<Entreprise>
   constructor(private http: HttpClient) { }
 
   getAllEntreprises():Observable<Entreprise[]>{
     return this.http.get<Entreprise[]>(`${environment.apiUrl}/entreprises`)
   }
+
+  getPagesEntreprises(page:number, size:number):Observable<pageEntreprise>{
+    let index = page * size
+    let totalPages = ~~this.entreprises /size
+    if (this.entreprises.length % size != 0)
+      totalPages++
+    let pageEntreprise =this.entreprises.splice(index,index+size)
+    // @ts-ignore
+    return of({page : page , size: size,totalPages:totalPages,product:pageEntreprise})
+  }
+
 
   postEntreprise(entreprise:Entreprise, id:number){
     return this.http.post<Entreprise>(`${environment.apiUrl}/entreprises/agent/${id}/add`,entreprise)
@@ -26,5 +37,9 @@ export class EntreprisesService {
 
   getAdherents(){
     return this.http.get<adherent>(`${environment.apiUrl}/user/adherents`)
+  }
+
+  putEntreprise(entreprise:Entreprise, id :number, agentId:number){
+    return this.http.put<Entreprise>(`${environment.apiUrl}/entreprises/${id}/agent/${agentId}/update`,entreprise)
   }
 }

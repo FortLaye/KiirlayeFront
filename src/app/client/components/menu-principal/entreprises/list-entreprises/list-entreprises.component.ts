@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EntreprisesService} from "../../../../services/entreprises.service";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {Entreprise} from "../../../../models/entreprise";
 import {Router} from "@angular/router";
 
@@ -10,12 +10,19 @@ import {Router} from "@angular/router";
   styleUrls: ['./list-entreprises.component.css']
 })
 export class ListEntreprisesComponent implements OnInit{
+  loader = true
+  currentPage:number=0
+  pagesize = 5
+  totalPages: number = 0
   constructor(private entrepriseService: EntreprisesService,
               private router: Router){}
 
   entreprises$!: Observable<Entreprise[]>;
   ngOnInit(): void {
+    console.log(this.loader)
       this.entreprises$ = this.entrepriseService.getAllEntreprises()
+      this.loader=false
+    console.log(this.loader)
   }
 
   onEditEntreprise(id: number){

@@ -20,3 +20,10 @@ export interface adresse{
   etatAdresse: boolean
 }
 
+export interface pageEntreprise{
+  entreprise:Entreprise[]
+  page :number
+  size :number
+  totalPages:number
+
+}

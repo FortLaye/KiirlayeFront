@@ -23,6 +23,7 @@ export class AuthentificationService {
 
     this.currentUser = new BehaviorSubject<User | null>(null)
     this.userSubject = this.currentUser.asObservable();
+    console.log(this.tokenSubject)
 
   }
 

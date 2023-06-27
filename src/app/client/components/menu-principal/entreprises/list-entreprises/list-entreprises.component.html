@@ -17,6 +17,9 @@
       </tr>
     </thead>
     <tbody>
+    <div *ngIf="!entreprises$" id="preloader">
+      <div id="loader"></div>
+    </div>
         <tr *ngFor="let item of entreprises$ | async">
           <td>{{ item.nomEntreprise }}</td>
           <td>{{ item.adresse.rue_entrprise }}</td>
@@ -40,7 +43,6 @@
       </tr>
     </tbody>
   </table>
-
 
 </div>
 

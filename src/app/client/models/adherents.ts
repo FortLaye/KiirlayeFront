@@ -15,4 +15,5 @@ export interface adherent{
   conventionCollective:string
   poste:string
   entrepriseClients:Entreprise
+
 }

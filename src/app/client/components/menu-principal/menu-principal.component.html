@@ -21,6 +21,11 @@
 						<i class="fa-sharp fa-solid fa-hospital-user"></i><span class="menu-text">Structures</span>
 					</a>
 				</li>
+          <li class="nav-item" [routerLink]="['adherents/list-adherents']" routerLinkActive="activ-link">
+            <a>
+              <i class="fa-solid fa-users"></i><span class="menu-text">Adherents</span>
+            </a>
+          </li>
 				<li class="nav-item">
 					<a (click)="logout()">
 						<i class="fas fa-sign-out-alt"></i><span class="menu-text">exit</span>

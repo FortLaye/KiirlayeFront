@@ -19,6 +19,8 @@ import { ListEntreprisesComponent } from './components/menu-principal/entreprise
 import { ItemEntreprisesComponent } from './components/menu-principal/entreprises/item-entreprises/item-entreprises.component';
 import { AddEntrepriseComponent } from './components/menu-principal/entreprises/add-entreprise/add-entreprise.component';
 import { DetailsEntrepriseComponent } from './components/menu-principal/entreprises/details-entreprise/details-entreprise.component';
+import { AdherentsComponent } from './components/menu-principal/adherents/adherents.component';
+import { ListAdherentsComponent } from './components/menu-principal/adherents/list-adherents/list-adherents.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { DetailsEntrepriseComponent } from './components/menu-principal/entrepri
     ItemEntreprisesComponent,
     AddEntrepriseComponent,
     DetailsEntrepriseComponent,
+    AdherentsComponent,
+    ListAdherentsComponent,
   ],
   imports: [
     CommonModule,
