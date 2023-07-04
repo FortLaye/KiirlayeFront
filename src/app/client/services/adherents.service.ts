@@ -17,4 +17,8 @@ export class AdherentsService{
     return this.httpClient.get<adherent[]>(`${environment.apiUrl}/users/adherents`)
   }
 
+  getAdherentByEntreprise(id: number):Observable<adherent>{
+    return this.httpClient.get<adherent>(`${environment.apiUrl}/users/adherents/entClient/${id}`)
+  }
+
 }
