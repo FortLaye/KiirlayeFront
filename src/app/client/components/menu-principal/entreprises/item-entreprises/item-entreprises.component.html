@@ -1,4 +1,9 @@
+<div *ngIf="loader" id="preloader">
+  <div id="loader"></div>
+</div>
+
 <form *ngIf="entreprise"  name="myform"[formGroup]="coordonneesEntreprise" class="form-group">
+  <div *ngIf="loader1">loading...</div>
   <div class="row mb-2 ">
     <div class="col-md-12 mt-3">
       <div class="input-group">
@@ -89,7 +94,7 @@
 
   <div class="d-flex mt-4 justify-content-between">
     <button class="btn btn-success" routerLink="/client/menus-principal/entreprises/list-entreprises">Annuler</button>
-    <button class="btn btn-success" (click)="updateEntreprise()">Suivant</button>
+    <button class="btn btn-success" (click)="updateEntreprise()">Mettre à jour</button>
   </div>
 </form>
 

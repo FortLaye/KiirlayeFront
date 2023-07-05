@@ -13,6 +13,7 @@ import {adherent} from "../../../../models/adherents";
 export class DetailsEntrepriseComponent implements OnInit{
   @Input() entreprise! : Entreprise
   @Input() adherent!: adherent
+  loader : boolean = true
 
   constructor(private route :ActivatedRoute, private entrepriseService:EntreprisesService, private adherentService:AdherentsService) {
   }
@@ -21,6 +22,7 @@ export class DetailsEntrepriseComponent implements OnInit{
     this.entrepriseService.getEntreprise(faceSnapId).subscribe(
       (value)=>{
         this.entreprise = value
+        this.loader = false
       }
     )
 

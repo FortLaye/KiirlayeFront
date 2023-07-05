@@ -1,5 +1,9 @@
 <div class="container">
+  <div *ngIf="loader" id="preloader">
+    <div id="loader"></div>
+  </div>
   <div class="main-body" *ngIf="entreprise">
+    <i class="bi bi-arrow-left-short" style="font-size: xx-large" routerLink="/client/menus-principal/entreprises/list-entreprises"></i>
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
         <div class="card">
@@ -86,6 +90,7 @@
           </tr>
           </tbody>
         </table>
+
       </div>
     </div>
   </div>
