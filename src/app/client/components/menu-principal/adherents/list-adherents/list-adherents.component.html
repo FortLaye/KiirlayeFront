@@ -4,4 +4,34 @@
   </div>
 </div>
 
-<p>list-adherents works!</p>
+<h1>Adherents </h1>
+<nav class="row mb-2">
+  <div class="col-sm-2">
+  <input class="form-control " type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
+  </div>
+</nav>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Matricule</th>
+    <th>Prenom et Nom</th>
+    <th>Email</th>
+    <th>Numero Telephone</th>
+    <th>Adresse</th>
+    <th>Date et Lieu de Naissance</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let adherent of adherents | paginate:{itemsPerPage:10, currentPage:p}">
+    <td>{{adherent.userIdd}}</td>
+    <td>{{adherent.prenom}} {{adherent.nom}}</td>
+    <td>{{adherent.email}}</td>
+    <td>{{adherent.tel}}</td>
+    <td>{{adherent.adresse}}</td>
+    <td>{{adherent.dateNaiss | date}} a {{adherent.lieuNaiss}}</td>
+    <td></td>
+  </tr>
+  </tbody>
+  <pagination-controls (pageChange)=" p = $event"></pagination-controls>
+</table>

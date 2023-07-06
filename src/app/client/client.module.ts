@@ -21,6 +21,7 @@ import { AddEntrepriseComponent } from './components/menu-principal/entreprises/
 import { DetailsEntrepriseComponent } from './components/menu-principal/entreprises/details-entreprise/details-entreprise.component';
 import { AdherentsComponent } from './components/menu-principal/adherents/adherents.component';
 import { ListAdherentsComponent } from './components/menu-principal/adherents/list-adherents/list-adherents.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -43,11 +44,12 @@ import { ListAdherentsComponent } from './components/menu-principal/adherents/li
     AdherentsComponent,
     ListAdherentsComponent,
   ],
-  imports: [
-    CommonModule,
-    ClientRoutingModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        ClientRoutingModule,
+        SharedModule,
+        NgxPaginationModule
+    ],
   exports: [
     OffreSliderComponent,
     AuthFormComponent

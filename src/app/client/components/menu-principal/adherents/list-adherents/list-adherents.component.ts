@@ -8,13 +8,15 @@ import {adherent} from "../../../../models/adherents";
   styleUrls: ['./list-adherents.component.css']
 })
 export class ListAdherentsComponent implements OnInit{
-  adherent!:adherent[]
+  adherents!:adherent[]
   loader = true
+  firstName : any
+  p:number = 1
   ngOnInit(): void {
     this.adherentService.getAllAdherents().subscribe(
       (value)=>{
-        this.adherent = value
-        console.log(this.adherent)
+        this.adherents = value
+        console.log(this.adherents)
         this.loader = false
       }
     )
@@ -24,4 +26,15 @@ export class ListAdherentsComponent implements OnInit{
   }
 
 
+  search() {
+    if (this.firstName == ""){
+      this.loader = false
+      this.ngOnInit()
+      this.loader = true
+    }else {
+      this.adherents = this.adherents.filter(res =>{
+        return res.prenom.toLowerCase().match(this.firstName.toLocaleLowerCase()) || res.nom.toLowerCase().match(this.firstName.toLocaleLowerCase());
+      })
+    }
+  }
 }
