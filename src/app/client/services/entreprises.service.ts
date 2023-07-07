@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Entreprise, pageEntreprise} from '../models/entreprise';
 import { environment } from 'src/environments/environment.development';
-import {adherent} from "../models/adherents";
+import {Adherent} from "../models/adherents";
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class EntreprisesService {
   }
 
   getAdherents(){
-    return this.http.get<adherent>(`${environment.apiUrl}/user/adherents`)
+    return this.http.get<Adherent>(`${environment.apiUrl}/user/adherents`)
   }
 
   putEntreprise(entreprise:Entreprise, id :number, agentId:number){

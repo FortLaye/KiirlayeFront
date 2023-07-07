@@ -21,6 +21,9 @@ import {
 } from "./components/menu-principal/entreprises/details-entreprise/details-entreprise.component";
 import {AdherentsComponent} from "./components/menu-principal/adherents/adherents.component";
 import {ListAdherentsComponent} from "./components/menu-principal/adherents/list-adherents/list-adherents.component";
+import {
+  DetailsAdherentsComponent
+} from "./components/menu-principal/adherents/details-adherents/details-adherents.component";
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
@@ -31,14 +34,14 @@ const routes: Routes = [
       {path: 'adherants-graphs', component: AdherantsGraphsComponent}
     ]},
     {path: 'entreprises', component: EntreprisesComponent , children: [
-
         {path: 'list-entreprises', component: ListEntreprisesComponent},
         {path:'add-entreprises', component: AddEntrepriseComponent},
         {path: ':id', component: ItemEntreprisesComponent},
         {path: 'details-entreprise/:id',component: DetailsEntrepriseComponent}
       ] },
       {path:'adherents', component:AdherentsComponent, children:[
-          {path: 'list-adherents', component: ListAdherentsComponent}
+          {path: 'list-adherents', component: ListAdherentsComponent},
+          {path: 'details-adherent/:id', component: DetailsAdherentsComponent}
         ]
       },
     {path: 'structures', component: StructuresComponent}

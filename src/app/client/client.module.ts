@@ -22,6 +22,8 @@ import { DetailsEntrepriseComponent } from './components/menu-principal/entrepri
 import { AdherentsComponent } from './components/menu-principal/adherents/adherents.component';
 import { ListAdherentsComponent } from './components/menu-principal/adherents/list-adherents/list-adherents.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import { DetailsAdherentsComponent } from './components/menu-principal/adherents/details-adherents/details-adherents.component';
+import { AddAdherentsComponent } from './components/menu-principal/adherents/add-adherents/add-adherents.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     DetailsEntrepriseComponent,
     AdherentsComponent,
     ListAdherentsComponent,
+    DetailsAdherentsComponent,
+    AddAdherentsComponent,
   ],
     imports: [
         CommonModule,

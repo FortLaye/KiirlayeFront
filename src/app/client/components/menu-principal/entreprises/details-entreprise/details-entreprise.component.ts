@@ -3,7 +3,7 @@ import {Entreprise} from "../../../../models/entreprise";
 import {ActivatedRoute} from "@angular/router";
 import {EntreprisesService} from "../../../../services/entreprises.service";
 import {AdherentsService} from "../../../../services/adherents.service";
-import {adherent} from "../../../../models/adherents";
+import {Adherent} from "../../../../models/adherents";
 
 @Component({
   selector: 'app-details-entreprise',
@@ -12,7 +12,7 @@ import {adherent} from "../../../../models/adherents";
 })
 export class DetailsEntrepriseComponent implements OnInit{
   @Input() entreprise! : Entreprise
-  @Input() adherent!: adherent
+  @Input() adherent!: Adherent
   loader : boolean = true
 
   constructor(private route :ActivatedRoute, private entrepriseService:EntreprisesService, private adherentService:AdherentsService) {

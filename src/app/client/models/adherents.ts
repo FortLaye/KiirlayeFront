@@ -1,6 +1,6 @@
 import {Entreprise} from "./entreprise";
 
-export interface adherent{
+export interface Adherent{
   id: number
   nom: string
   prenom: string

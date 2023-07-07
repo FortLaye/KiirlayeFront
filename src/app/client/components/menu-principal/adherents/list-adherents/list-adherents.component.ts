@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AdherentsService} from "../../../../services/adherents.service";
-import {adherent} from "../../../../models/adherents";
+import {Adherent} from "../../../../models/adherents";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-adherents',
@@ -8,7 +9,7 @@ import {adherent} from "../../../../models/adherents";
   styleUrls: ['./list-adherents.component.css']
 })
 export class ListAdherentsComponent implements OnInit{
-  adherents!:adherent[]
+  adherents!:Adherent[]
   loader = true
   firstName : any
   p:number = 1
@@ -21,7 +22,7 @@ export class ListAdherentsComponent implements OnInit{
       }
     )
   }
-  constructor(private adherentService:AdherentsService) {
+  constructor(private adherentService:AdherentsService, private router:Router) {
 
   }
 
@@ -36,5 +37,9 @@ export class ListAdherentsComponent implements OnInit{
         return res.prenom.toLowerCase().match(this.firstName.toLocaleLowerCase()) || res.nom.toLowerCase().match(this.firstName.toLocaleLowerCase());
       })
     }
+  }
+
+  onShowDetailsAdherents(idAdherents:number) {
+    this.router.navigateByUrl(`/client/menus-principal/adherents/details-adherent/${idAdherents}`)
   }
 }

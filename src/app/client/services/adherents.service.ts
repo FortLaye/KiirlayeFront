@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment.development";
-import {adherent} from "../models/adherents";
+import {Adherent} from "../models/adherents";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -13,12 +13,15 @@ export class AdherentsService{
   constructor(private httpClient:HttpClient) {
   }
 
-  getAllAdherents():Observable<adherent[]>{
-    return this.httpClient.get<adherent[]>(`${environment.apiUrl}/users/adherents`)
+  getAllAdherents():Observable<Adherent[]>{
+    return this.httpClient.get<Adherent[]>(`${environment.apiUrl}/users/adherents`)
   }
 
-  getAdherentByEntreprise(id: number):Observable<adherent>{
-    return this.httpClient.get<adherent>(`${environment.apiUrl}/users/adherents/entClient/${id}`)
+  getAdherentByEntreprise(id: number):Observable<Adherent>{
+    return this.httpClient.get<Adherent>(`${environment.apiUrl}/users/adherents/entClient/${id}`)
   }
 
+  getAdherentsById(idAdherents: number) {
+    return this.httpClient.get<Adherent>(`${environment.apiUrl}/users/adherents/${idAdherents}`)
+  }
 }
