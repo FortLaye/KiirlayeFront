@@ -13,7 +13,7 @@
 <table class="table table-bordered">
   <thead>
   <tr>
-    <th>Matricule</th>
+    <th >Matricule</th>
     <th>Prenom et Nom</th>
     <th>Email</th>
     <th>Numero Telephone</th>
@@ -23,15 +23,15 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let adherent of adherents | paginate:{itemsPerPage:10, currentPage:p}">
+  <tr *ngFor="let adherent of adherents | paginate:{itemsPerPage:7, currentPage:p}">
     <td>{{adherent.userIdd}}</td>
     <td>{{adherent.prenom}} {{adherent.nom}}</td>
     <td>{{adherent.email}}</td>
     <td>{{adherent.tel}}</td>
     <td>{{adherent.adresse}}</td>
     <td>{{adherent.dateNaiss | date}} a {{adherent.lieuNaiss}}</td>
-    <td></td>
+    <td><i class="bi bi-arrow-up-right-circle-fill"></i></td>
   </tr>
   </tbody>
-  <pagination-controls (pageChange)=" p = $event"></pagination-controls>
 </table>
+<pagination-controls (pageChange)=" p = $event"></pagination-controls>
