@@ -1,8 +1,8 @@
-<div class="container">
+<div class="">
   <div *ngIf="loader" id="preloader">
     <div id="loader"></div>
   </div>
-  <div class="main-body" *ngIf="entreprise">
+  <div class="main-body" *ngIf="entreprise && adherents">
     <i class="bi bi-arrow-left-short" style="font-size: xx-large" routerLink="/client/menus-principal/entreprises/list-entreprises"></i>
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
@@ -66,31 +66,50 @@
       </div>
     </div>
     <div class="row gutters-sm">
-      <div class="col-sm-12 mb-3 border border-dark">
-        <h1>Adherents</h1>
-        <table class="table table-bordered table-responsive-sm">
-          <thead>
-          <tr>
-          <th>Matricule </th>
-          <th>Prenom </th>
-          <th>Nom </th>
-          <th>N telephone </th>
-          <th>Email </th>
-          <th>Actions </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-          </tbody>
-        </table>
-
+      <div class="col-sm-12">
+        <h3>Adherents </h3>
+        <nav class="row mb-2 d-flex justify-content-between">
+          <div class="col-sm-4">
+            <input class="form-control " type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
+          </div>
+          <div class="col-sm-2 align-content-end">
+            <button class="btn btn-success ps-5 pe-5" routerLink="/client/menus-principal/adherents/add-adherent">Ajouter</button>
+          </div>
+        </nav>
+        <div class="table-responsive table-responsive-sm">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th >Matricule</th>
+              <th>Prenom et Nom</th>
+              <th>Email</th>
+              <th>Numero Telephone</th>
+              <th>Adresse</th>
+              <th>Date et Lieu de Naissance</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let adherent of adherents | paginate:{itemsPerPage:3, currentPage:p}">
+              <td>{{adherent.userIdd}}</td>
+              <td>{{adherent.prenom}} {{adherent.nom}}</td>
+              <td>{{adherent.email}}</td>
+              <td>{{adherent.tel}}</td>
+              <td>{{adherent.adresse}}</td>
+              <td>{{adherent.dateNaiss | date}} a {{adherent.lieuNaiss}}</td>
+              <td><i class="bi bi-arrow-up-right-circle-fill" (click)="onShowDetailsAdherents(adherent.id)"></i></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row d-flex justify-content-between" (click)="onEditEntreprise(entreprise.id)">
+          <div class="col-sm-8">
+            <pagination-controls (pageChange)=" p = $event"></pagination-controls>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-outline-warning">Modifier</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

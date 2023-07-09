@@ -4,6 +4,9 @@ import {AdherentsService} from "../../../../services/adherents.service";
 import {Entreprise} from "../../../../models/entreprise";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {Adherent} from "../../../../models/adherents";
+import jwt_decode from "jwt-decode";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-add-adherents',
@@ -11,13 +14,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./add-adherents.component.css']
 })
 export class AddAdherentsComponent implements OnInit{
-  entreprises$! : Entreprise[]
+  entreprises! : Entreprise[]
   loader : boolean = true
   adherentsForm!: FormGroup
+  adherent!: Adherent
   ngOnInit(): void {
     this.entrepriserService.getAllEntreprises().subscribe(
       (value)=> {
-        this.entreprises$ = value
+        this.entreprises = value
         this.loader = false
       }
     )
@@ -28,7 +32,7 @@ export class AddAdherentsComponent implements OnInit{
       email:['', Validators.required],
       tel:['', Validators.required],
       adresse:['', Validators.required],
-      genre:['', Validators.required],
+      genre:['Masculin', Validators.required],
       lieuNaiss:['', Validators.required],
       entrepriseClients:['', Validators.required]
     })
@@ -41,6 +45,19 @@ export class AddAdherentsComponent implements OnInit{
               private router : Router) {
   }
   onSave(){
-    console.log(this.adherentsForm.value)
+    if (this.adherentsForm.valid){
+      this.adherent = this.adherentsForm.value
+      console.log(this.adherent)
+      const decodeToken: any = jwt_decode(localStorage.getItem('token')!)
+      const idAgent = decodeToken.jti
+      this.adherentService.postAdherents(this.adherent, idAgent).subscribe(
+        ()=>{
+          this.router.navigateByUrl('/client/menus-principal/adherents/list-adherents')
+        }
+      )
+
+    }
+
+
   }
 }

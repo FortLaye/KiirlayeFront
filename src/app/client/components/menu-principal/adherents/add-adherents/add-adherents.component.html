@@ -5,7 +5,7 @@
 </div>
 
 
-<div *ngIf="entreprises$"  class="container rounded rounded-3 border border-2 p-4">
+<div *ngIf="entreprises"  class="container rounded rounded-3 border border-2 p-4">
   <h5 class="text-center">Ajout Adherents</h5>
   <form [formGroup]="adherentsForm">
     <div class="row d-flex justify-content-around mb-2">
@@ -17,35 +17,34 @@
     </div>
     <div class="row mb-2">
       <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="Prenom" formControlName="prenom" placeholder="">
+        <input type="text" class="form-control" id="Prenom" formControlName="prenom" placeholder="Prenom de l'adherent">
         <label for="Prenom">Prénom de l'adherent</label>
       </div>
       <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="nom" formControlName="nom" placeholder="">
+        <input type="text" class="form-control" id="nom" formControlName="nom" placeholder="nom de l'adherent">
         <label for="Nom">Nom de l'adherent</label>
       </div>
     </div>
     <div class="row mb-2">
       <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="email" formControlName="email" placeholder="">
+        <input type="text" class="form-control" id="email" formControlName="email" placeholder="Adresse mail">
         <label for="email"> Adresse Email</label>
       </div>
 
     </div>
     <div class="row mb-2">
       <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="telephone" formControlName="tel" placeholder="">
+        <input type="text" class="form-control" id="telephone" formControlName="tel" placeholder="Numero de l'adherent">
         <label for="telephone">Numero de l'adherent</label>
       </div>
       <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="adresse" formControlName="adresse" placeholder="">
+        <input type="text" class="form-control" id="adresse" formControlName="adresse" placeholder="Adresse">
         <label for="adresse">Adresse</label>
       </div>
     </div>
     <div class="row mb-2">
       <div class=" form-floating p-1 col-sm-6">
-        <select id="genre" class="form-select" aria-label="Default select example" formControlName="genre" placeholder="">
-          <option selected>Selectionner l'entreprise</option>
+        <select id="genre" class="form-select" aria-label="Default select example" formControlName="genre">
           <option value="Masculin"> Masculin</option>
           <option value="Feminin"> Feminin</option>
         </select>
@@ -58,9 +57,9 @@
     </div>
     <div class="row mb-2">
       <div class=" form-floating p-1 col-sm-6">
-        <select id="Entreprise-Client" class="form-select" aria-label="Default select example" formControlName="entrepriseClients" placeholder="Entreprise">
+        <select id="Entreprise-Client" class="form-select" aria-label="Default select example"  placeholder="Selectionner l'entreprise" formControlName="entrepriseClients">
           <option selected>Selectionner l'entreprise</option>
-          <option *ngFor="let entreprise of entreprises$" [value]="entreprise.id">{{entreprise.nomEntreprise}}</option>
+          <option *ngFor="let entreprise of entreprises" [value]="entreprise.id">{{entreprise.nomEntreprise}}</option>
         </select>
         <label for="Entreprise-Client">Entreprise</label>
       </div>

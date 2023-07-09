@@ -17,11 +17,15 @@ export class AdherentsService{
     return this.httpClient.get<Adherent[]>(`${environment.apiUrl}/users/adherents`)
   }
 
-  getAdherentByEntreprise(id: number):Observable<Adherent>{
-    return this.httpClient.get<Adherent>(`${environment.apiUrl}/users/adherents/entClient/${id}`)
+  getAdherentByEntreprise(id: number):Observable<Adherent[]>{
+    return this.httpClient.get<Adherent[]>(`${environment.apiUrl}/users/adherents/entClient/${id}`)
   }
 
   getAdherentsById(idAdherents: number) {
     return this.httpClient.get<Adherent>(`${environment.apiUrl}/users/adherents/${idAdherents}`)
+  }
+
+  postAdherents(adherents: Adherent, idAgent:number) {
+    return this.httpClient.post(`${environment.apiUrl}/users/adherents/agent/${idAgent}/add`, adherents)
   }
 }
