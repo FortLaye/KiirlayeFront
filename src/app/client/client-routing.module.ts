@@ -24,6 +24,7 @@ import {ListAdherentsComponent} from "./components/menu-principal/adherents/list
 import {
   DetailsAdherentsComponent
 } from "./components/menu-principal/adherents/details-adherents/details-adherents.component";
+import {AddAdherentsComponent} from "./components/menu-principal/adherents/add-adherents/add-adherents.component";
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
@@ -41,7 +42,8 @@ const routes: Routes = [
       ] },
       {path:'adherents', component:AdherentsComponent, children:[
           {path: 'list-adherents', component: ListAdherentsComponent},
-          {path: 'details-adherent/:id', component: DetailsAdherentsComponent}
+          {path: 'details-adherent/:id', component: DetailsAdherentsComponent},
+          {path: 'add-adherent', component: AddAdherentsComponent}
         ]
       },
     {path: 'structures', component: StructuresComponent}

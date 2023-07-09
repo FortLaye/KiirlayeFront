@@ -1,1 +1,79 @@
-<p>add-adherents works!</p>
+<div>
+  <div *ngIf="loader" id="preloader">
+    <div id="loader"></div>
+  </div>
+</div>
+
+
+<div *ngIf="entreprises$"  class="container rounded rounded-3 border border-2 p-4">
+  <h5 class="text-center">Ajout Adherents</h5>
+  <form [formGroup]="adherentsForm">
+    <div class="row d-flex justify-content-around mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="matricule" formControlName="userIdd" placeholder="matricule">
+        <label for="matricule">Matricule de l'adherent</label>
+      </div>
+
+    </div>
+    <div class="row mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="Prenom" formControlName="prenom" placeholder="">
+        <label for="Prenom">Prénom de l'adherent</label>
+      </div>
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="nom" formControlName="nom" placeholder="">
+        <label for="Nom">Nom de l'adherent</label>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="email" formControlName="email" placeholder="">
+        <label for="email"> Adresse Email</label>
+      </div>
+
+    </div>
+    <div class="row mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="telephone" formControlName="tel" placeholder="">
+        <label for="telephone">Numero de l'adherent</label>
+      </div>
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="adresse" formControlName="adresse" placeholder="">
+        <label for="adresse">Adresse</label>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <select id="genre" class="form-select" aria-label="Default select example" formControlName="genre" placeholder="">
+          <option selected>Selectionner l'entreprise</option>
+          <option value="Masculin"> Masculin</option>
+          <option value="Feminin"> Feminin</option>
+        </select>
+        <label for="genre">Genre</label>
+      </div>
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="lieu" formControlName="lieuNaiss" placeholder="Lieu">
+        <label for="lieu">Lieu de naissance</label>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <select id="Entreprise-Client" class="form-select" aria-label="Default select example" formControlName="entrepriseClients" placeholder="Entreprise">
+          <option selected>Selectionner l'entreprise</option>
+          <option *ngFor="let entreprise of entreprises$" [value]="entreprise.id">{{entreprise.nomEntreprise}}</option>
+        </select>
+        <label for="Entreprise-Client">Entreprise</label>
+      </div>
+
+    </div>
+    <div class="row mt-5 d-flex justify-content-between">
+      <div class=" col-sm-2 ">
+        <button class="ps-3 pe-3 btn btn-outline-secondary" routerLink="/client/menus-principal/adherents/list-adherents">Fermer</button>
+      </div>
+      <div class="col-sm-2 border border-2 ">
+        <button type="button" class="ps-3 pe-3 btn btn-outline-success" (click)="onSave()">Enregistrer</button>
+      </div>
+
+    </div>
+  </form>
+</div>
