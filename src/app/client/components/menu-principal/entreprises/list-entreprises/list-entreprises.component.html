@@ -1,14 +1,19 @@
-<div class="header mx-3 d-flex">
-  <div class="h3 me-auto">Entreprises Clientes</div>
 
-  <button routerLink="/client/menus-principal/entreprises/add-entreprises" class="btn btn-success rounded-4 ps-4 pe-3" >
-    Ajouter <i class="bi bi-plus"></i>
-  </button>
-</div>
 <div *ngIf="loader" id="preloader">
   <div id="loader"></div>
 </div>
-<div class="container table-responsive py-5">
+<h1>Entreprises Clientes</h1>
+<nav class="row mb-2 border border-2 d-flex justify-content-between">
+  <div class="col-sm-4">
+    <input class="form-control " type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
+  </div>
+  <div class="col-sm-2 align-content-end">
+    <button routerLink="/client/menus-principal/entreprises/add-entreprises" class="btn btn-success rounded-4 ps-4 pe-3" >
+      Ajouter <i class="bi bi-plus"></i>
+    </button>
+  </div>
+</nav>
+<div class="table-responsive">
   <table class="table table-bordered table-hover">
     <thead>
       <tr>
@@ -22,7 +27,7 @@
     </thead>
     <tbody>
 
-        <tr *ngFor="let item of entreprises">
+        <tr *ngFor="let item of entreprises | paginate:{itemsPerPage:7, currentPage:p}">
           <td>{{ item.nomEntreprise }}</td>
           <td>{{ item.adresse.rue_entrprise }}</td>
           <td>{{ item.numeroTelephone }}</td>
@@ -45,6 +50,7 @@
       </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)=" p = $event"></pagination-controls>
 
 </div>
 

@@ -26,6 +26,10 @@ export class AdherentsService{
   }
 
   postAdherents(adherents: Adherent, idAgent:number) {
-    return this.httpClient.post(`${environment.apiUrl}/users/adherents/agent/${idAgent}/add`, adherents)
+    return this.httpClient.post<Adherent>(`${environment.apiUrl}/users/adherents/agent/${idAgent}/add`, adherents)
+  }
+
+  putAdherent(adherents:Adherent,idAdherent: number, idAgent: number) {
+    return this.httpClient.put<Adherent>(`${environment.apiUrl}/users/adherents/${idAdherent}/agent/${idAgent}/update`,adherents)
   }
 }

@@ -11,7 +11,8 @@ import {Router} from "@angular/router";
 })
 export class ListEntreprisesComponent implements OnInit{
   loader = true
-
+  firstName : any
+  p:number = 1
 
   constructor(private entrepriseService: EntreprisesService,
               private router: Router){}
@@ -35,6 +36,19 @@ export class ListEntreprisesComponent implements OnInit{
 
   onShowEntreprise(id: number){
     this.router.navigateByUrl(`/client/menus-principal/entreprises/details-entreprise/${id}`);
+  }
+
+
+  search() {
+    if (this.firstName == ""){
+      this.loader = false
+      this.ngOnInit()
+      this.loader = true
+    }else {
+      this.entreprises = this.entreprises.filter(res =>{
+        return res.nomEntreprise.toLowerCase().match(this.firstName.toLocaleLowerCase()) || res.emailEntreprise.toLowerCase().match(this.firstName.toLocaleLowerCase());
+      })
+    }
   }
 
 

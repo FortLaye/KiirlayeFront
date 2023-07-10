@@ -5,7 +5,7 @@
 </div>
 
 <h1>Adherents </h1>
-<nav class="row mb-2 border border-2 d-flex justify-content-between">
+<nav class="row mb-2 d-flex justify-content-between">
   <div class="col-sm-4">
   <input class="form-control " type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
   </div>
@@ -34,7 +34,11 @@
       <td>{{adherent.tel}}</td>
       <td>{{adherent.adresse}}</td>
       <td>{{adherent.dateNaiss | date}} a {{adherent.lieuNaiss}}</td>
-      <td><i class="bi bi-arrow-up-right-circle-fill" (click)="onShowDetailsAdherents(adherent.id)"></i></td>
+      <td class="d-flex justify-content-between">
+        <i class="bi bi-arrow-up-right-circle-fill" (click)="onShowDetailsAdherents(adherent.id)"></i>
+        <i class="bi bi-pencil-square" (click)="onEditAdherent(adherent.id)"></i>
+      </td>
+
     </tr>
     </tbody>
   </table>

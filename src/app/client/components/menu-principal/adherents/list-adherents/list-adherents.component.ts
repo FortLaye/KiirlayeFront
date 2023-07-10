@@ -42,4 +42,8 @@ export class ListAdherentsComponent implements OnInit{
   onShowDetailsAdherents(idAdherents:number) {
     this.router.navigateByUrl(`/client/menus-principal/adherents/details-adherent/${idAdherents}`)
   }
+
+  onEditAdherent(id: number) {
+    this.router.navigateByUrl(`/client/menus-principal/adherents/${id}`)
+  }
 }
