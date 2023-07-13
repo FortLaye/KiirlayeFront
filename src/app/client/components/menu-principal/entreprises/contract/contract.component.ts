@@ -34,6 +34,14 @@ export class ContractComponent implements OnInit{
   }
 
   search() {
-
+    if (this.firstName == ""){
+      this.loader = false
+      this.ngOnInit()
+      this.loader = true
+    }else {
+      this.contrat = this.contrat.filter(res =>{
+        return res.entrepriseClients.nomEntreprise.toLowerCase().match(this.firstName.toLocaleLowerCase());
+      })
+    }
   }
 }
