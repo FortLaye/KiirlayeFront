@@ -17,6 +17,7 @@ export class AuthentificationService {
   currentUser!: BehaviorSubject<User | null>
   userSubject!: Observable<User | null>
 
+  // @ts-ignore
   constructor(private http: HttpClient) {
     this.tokenSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('token')!));
     this.token = this.tokenSubject.asObservable();

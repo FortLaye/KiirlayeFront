@@ -57,4 +57,8 @@ export class DetailsEntrepriseComponent implements OnInit{
   onEditEntreprise(id: number){
     this.router.navigateByUrl('/client/menus-principal/entreprises/'+id);
   }
+
+  onShowContrat(id: number) {
+    this.router.navigateByUrl('/client/menus-principal/entreprises/details-contract/'+id);
+  }
 }

@@ -25,6 +25,9 @@ import {NgxPaginationModule} from "ngx-pagination";
 import { DetailsAdherentsComponent } from './components/menu-principal/adherents/details-adherents/details-adherents.component';
 import { AddAdherentsComponent } from './components/menu-principal/adherents/add-adherents/add-adherents.component';
 import { EditAdherentsComponent } from './components/menu-principal/adherents/edit-adherents/edit-adherents.component';
+import { ContractComponent } from './components/menu-principal/entreprises/contract/contract.component';
+import { DetailsContractComponent } from './components/menu-principal/entreprises/details-contract/details-contract.component';
+
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { EditAdherentsComponent } from './components/menu-principal/adherents/ed
     DetailsAdherentsComponent,
     AddAdherentsComponent,
     EditAdherentsComponent,
+    ContractComponent,
+    DetailsContractComponent,
+
   ],
     imports: [
         CommonModule,

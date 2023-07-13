@@ -1,0 +1,43 @@
+
+<div *ngIf="loader" id="preloader">
+  <div id="loader"></div>
+</div>
+<h1>Contrat des entreprises</h1>
+<nav class="row mb-2 border border-2 d-flex justify-content-between">
+  <div class="col-sm-4">
+    <input class="form-control " type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
+  </div>
+</nav>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Entreprise</th>
+      <th scope="col">Date De Signature</th>
+      <th scope="col">Date d'entre en vigueur</th>
+      <th scope="col">Date De fin de contrat</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let item of contrat | paginate:{itemsPerPage:7, currentPage:p}">
+      <td>{{ item.entrepriseClients.nomEntreprise }}</td>
+      <td>{{ item.date_signature | date }}</td>
+      <td>{{ item.date_entree_vigueur |date }}</td>
+      <td>{{ item.date_fin_contrat | date }}</td>
+      <td>
+        <button class="btn btn-sm btn-outline-warning mx-2" (click)="onEditEntreprise(item.id)">
+          Voir plus
+        </button>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)=" p = $event"></pagination-controls>
+
+</div>
+
+
+

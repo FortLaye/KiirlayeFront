@@ -7,9 +7,12 @@
   <div class="col-sm-4">
     <input class="form-control " type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
   </div>
-  <div class="col-sm-2 align-content-end">
+  <div class="col-sm-6 d-flex justify-content-between">
     <button routerLink="/client/menus-principal/entreprises/add-entreprises" class="btn btn-success rounded-4 ps-4 pe-3" >
       Ajouter <i class="bi bi-plus"></i>
+    </button>
+    <button routerLink="/client/menus-principal/entreprises/contract" class="btn btn-warning rounded-4 ps-4 pe-3" >
+      Contrats
     </button>
   </div>
 </nav>

@@ -26,6 +26,11 @@ import {
 } from "./components/menu-principal/adherents/details-adherents/details-adherents.component";
 import {AddAdherentsComponent} from "./components/menu-principal/adherents/add-adherents/add-adherents.component";
 import {EditAdherentsComponent} from "./components/menu-principal/adherents/edit-adherents/edit-adherents.component";
+import {ContractComponent} from "./components/menu-principal/entreprises/contract/contract.component";
+import {
+  DetailsContractComponent
+} from "./components/menu-principal/entreprises/details-contract/details-contract.component";
+
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
@@ -38,8 +43,12 @@ const routes: Routes = [
     {path: 'entreprises', component: EntreprisesComponent , children: [
         {path: 'list-entreprises', component: ListEntreprisesComponent},
         {path:'add-entreprises', component: AddEntrepriseComponent},
+        {path: 'contract', component: ContractComponent},
         {path: ':id', component: ItemEntreprisesComponent},
-        {path: 'details-entreprise/:id',component: DetailsEntrepriseComponent}
+        {path: 'details-entreprise/:id',component: DetailsEntrepriseComponent},
+        {path: 'details-contract/:id', component: DetailsContractComponent}
+
+
       ] },
       {path:'adherents', component:AdherentsComponent, children:[
           {path: 'list-adherents', component: ListAdherentsComponent},
