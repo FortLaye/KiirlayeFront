@@ -28,9 +28,8 @@ export class ContractComponent implements OnInit{
   constructor(private contratService:ContratService, private router: Router) {
   }
 
-  onEditEntreprise(id: number) {
+  onShowContract(id: number) {
     this.router.navigateByUrl('/client/menus-principal/entreprises/details-contract/'+id)
-
   }
 
   search() {

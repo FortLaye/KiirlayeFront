@@ -3,7 +3,7 @@
   <div id="loader"></div>
 </div>
 <h1>Contrat des entreprises</h1>
-<nav class="row mb-2 border border-2 d-flex justify-content-between">
+<nav class="row mb-2 d-flex justify-content-between">
   <div class="col-sm-4">
     <input class="form-control " type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
   </div>
@@ -27,7 +27,7 @@
       <td>{{ item.date_entree_vigueur |date }}</td>
       <td>{{ item.date_fin_contrat | date }}</td>
       <td>
-        <button class="btn btn-sm btn-outline-warning mx-2" (click)="onEditEntreprise(item.id)">
+        <button class="btn btn-sm btn-outline-warning mx-2" (click)="onShowContract(item.id)">
           Voir plus
         </button>
 

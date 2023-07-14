@@ -3,16 +3,16 @@
   <div id="loader"></div>
 </div>
 <h1>Entreprises Clientes</h1>
-<nav class="row mb-2 border border-2 d-flex justify-content-between">
+<nav class="row mb-2 d-flex justify-content-between">
   <div class="col-sm-4">
-    <input class="form-control " type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
+    <input class="form-control rounded rounded-3" type="text" name="firstName" [(ngModel)]="firstName" (ngModelChange)="search()" placeholder="Recherche par Prenom ou Nom">
   </div>
-  <div class="col-sm-6 d-flex justify-content-between">
-    <button routerLink="/client/menus-principal/entreprises/add-entreprises" class="btn btn-success rounded-4 ps-4 pe-3" >
-      Ajouter <i class="bi bi-plus"></i>
-    </button>
-    <button routerLink="/client/menus-principal/entreprises/contract" class="btn btn-warning rounded-4 ps-4 pe-3" >
+  <div class="col-sm-3 d-flex justify-content-end">
+    <button routerLink="/client/menus-principal/entreprises/contract" class="btn btn-warning rounded-3 ps-4 pe-3 me-3" >
       Contrats
+    </button>
+    <button routerLink="/client/menus-principal/entreprises/add-entreprises" class="btn btn-success rounded-3 ps-4 pe-3" >
+      Ajouter <i class="bi bi-plus"></i>
     </button>
   </div>
 </nav>

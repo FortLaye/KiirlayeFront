@@ -1,4 +1,4 @@
-<div class="">
+
   <div *ngIf="loader" id="preloader">
     <div id="loader"></div>
   </div>
@@ -60,6 +60,12 @@
                 {{entreprise.adresse.rue_entrprise}} - {{entreprise.adresse.region}} - {{entreprise.adresse.ville}}
               </div>
             </div>
+            <hr>
+            <div class="row d-flex justify-content-end">
+              <button class="btn btn-outline-warning col-sm-2 me-2" (click)="onShowContrat(entreprise.id)">Contrat</button>
+              <button class="btn btn-outline-secondary col-sm-2 me-2" (click)="onEditEntreprise(entreprise.id)">Modifier</button>
+
+            </div>
 
           </div>
         </div>
@@ -106,12 +112,8 @@
           <div class="col-sm-8">
             <pagination-controls (pageChange)=" p = $event"></pagination-controls>
           </div>
-          <div class="col-sm-5">
-            <button class="btn btn-outline-warning me-2" (click)="onEditEntreprise(entreprise.id)">Modifier</button>
-            <button class="btn btn-outline-warning" (click)="onShowContrat(entreprise.id)">Contrat</button>
-          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+
