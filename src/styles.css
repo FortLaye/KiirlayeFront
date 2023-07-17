@@ -16,3 +16,19 @@ html, body {
 body {
 	margin: 0;
 }
+
+@media print {
+  .printable{
+    visibility: visible;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+  .non-printable{
+    visibility: hidden;
+  }
+  button{
+    visibility: hidden;
+  }
+
+}

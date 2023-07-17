@@ -27,6 +27,7 @@ import { AddAdherentsComponent } from './components/menu-principal/adherents/add
 import { EditAdherentsComponent } from './components/menu-principal/adherents/edit-adherents/edit-adherents.component';
 import { ContractComponent } from './components/menu-principal/entreprises/contract/contract.component';
 import { DetailsContractComponent } from './components/menu-principal/entreprises/details-contract/details-contract.component';
+import { EditContractComponent } from './components/menu-principal/entreprises/edit-contract/edit-contract.component';
 
 
 
@@ -54,6 +55,7 @@ import { DetailsContractComponent } from './components/menu-principal/entreprise
     EditAdherentsComponent,
     ContractComponent,
     DetailsContractComponent,
+    EditContractComponent,
 
   ],
     imports: [

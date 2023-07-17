@@ -30,6 +30,7 @@ import {ContractComponent} from "./components/menu-principal/entreprises/contrac
 import {
   DetailsContractComponent
 } from "./components/menu-principal/entreprises/details-contract/details-contract.component";
+import {EditContractComponent} from "./components/menu-principal/entreprises/edit-contract/edit-contract.component";
 
 
 const routes: Routes = [
@@ -46,7 +47,8 @@ const routes: Routes = [
         {path: 'contract', component: ContractComponent},
         {path: ':id', component: ItemEntreprisesComponent},
         {path: 'details-entreprise/:id',component: DetailsEntrepriseComponent},
-        {path: 'details-contract/:id', component: DetailsContractComponent}
+        {path: 'details-contract/:id', component: DetailsContractComponent},
+        {path: 'edit-contract/:id', component: EditContractComponent}
 
 
       ] },
