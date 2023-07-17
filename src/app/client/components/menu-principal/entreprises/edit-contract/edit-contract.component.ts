@@ -21,10 +21,11 @@ export class EditContractComponent implements OnInit{
         this.contract = value
         console.log(value)
         this.contractForm = this.formBuilder.group({
-          dateDeSignature:[this.contract.date_signature, Validators.required],
-          dateDentreeenVigueur:[this.contract.date_entree_vigueur, Validators.required],
-          dateDefinDecontrat:[this.contract.date_fin_contrat, Validators.required],
-          PeriodiciteiDucontrat:[this.contract.periodicite_contrat, Validators.required],
+          date_signature:[this.contract.date_signature, Validators.required],
+          date_entree_vigueur:[this.contract.date_entree_vigueur, Validators.required],
+          date_fin_contrat:[this.contract.date_fin_contrat, Validators.required],
+          periodicite_contrat:[this.contract.periodicite_contrat, Validators.required],
+          entrepriseClients:[this.contract.entrepriseClients.id, Validators.required],
 
         })
         this.loader = false;
@@ -38,8 +39,19 @@ export class EditContractComponent implements OnInit{
 
 
   updateContract() {
-
+    if (this.contractForm.valid){
+      console.log(this.contract)
+      this.contratService.putContract(this.contract.id, this.contract).subscribe(
+        value => {
+          console.log(value)
+          this.router.navigateByUrl(`/client/menus-principal/entreprises/details-contract/${this.contract.id}`)
+        }
+      )
+    }
   }
 
-  protected readonly each = each;
+
+  redirectDetailsContract(id: number) {
+    this.router.navigateByUrl(`/client/menus-principal/entreprises/details-contract/${id}`)
+  }
 }

@@ -18,4 +18,8 @@ export class ContratService {
   getContractById(id:number) {
     return this.httpClient.get<Contrat>(`${environment.apiUrl}/entreprises/contrats/${id}`)
   }
+
+  putContract(id: number, contrat:Contrat) {
+    return this.httpClient.put<Contrat>(`${environment.apiUrl}/entreprises/contrats/${id}`,contrat)
+  }
 }
