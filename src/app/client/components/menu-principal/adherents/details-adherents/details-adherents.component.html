@@ -3,3 +3,103 @@
     <div id="loader"></div>
   </div>
 </div>
+
+<div class="main-body" *ngIf="adherent">
+  <div class="row gutters-sm">
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-column align-items-center text-center">
+            <img src="{{adherent.image}}" alt="Admin" class="rounded-circle" width="150">
+            <div class="mt-3">
+              <h4>{{adherent.userIdd}}</h4>
+              <h4>{{adherent.prenom}}  {{adherent.nom}}</h4>
+              <p class="text-secondary mb-1">{{adherent.tel}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold"> Date et Lieu de Naissance:</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.dateNaiss | date}}  {{adherent.lieuNaiss}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold">Sexe:</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.genre}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold"> Adresse:</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.adresse}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold">Email :</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.email}}
+            </div>
+          </div><hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold">Convention Collective :</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.conventionCollective}}
+            </div>
+          </div><hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold">Poste :</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.poste}}
+            </div>
+          </div><hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold">Entreprise :</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.entrepriseClients.nomEntreprise}}
+            </div>
+          </div><hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold">Email entreprise:</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.entrepriseClients.emailEntreprise}}
+            </div>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-end row">
+            <div class="btn btn-outline-secondary me-2 col-sm-2" routerLink="/client/menus-principal/adherents/list-adherents">Retour</div>
+            <div class="btn btn-outline-warning me-2 col-sm-2" (click)="onEditAdherent(adherent.id)">Modifier</div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

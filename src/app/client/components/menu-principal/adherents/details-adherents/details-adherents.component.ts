@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {EntreprisesService} from "../../../../services/entreprises.service";
 import {AdherentsService} from "../../../../services/adherents.service";
 import {Adherent} from "../../../../models/adherents";
@@ -16,12 +16,13 @@ export class DetailsAdherentsComponent implements OnInit{
     this.onShowAdherent().subscribe(
       (value)=> {
         console.log(value)
+        this.adherent = value
         this.loader = false
       }
     )
   }
 
-  constructor(private route: ActivatedRoute,private adherentService:AdherentsService) {
+  constructor(private route: ActivatedRoute,private adherentService:AdherentsService,private router:Router) {
   }
 
 
@@ -30,4 +31,7 @@ export class DetailsAdherentsComponent implements OnInit{
     return this.adherentService.getAdherentsById(id);
   }
 
+  onEditAdherent(id: number) {
+    this.router.navigateByUrl(`/client/menus-principal/adherents/${id}`)
+  }
 }

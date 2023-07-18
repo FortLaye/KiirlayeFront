@@ -77,3 +77,8 @@ th, td{
     transform: rotate(360deg);
   }
 }
+
+i{
+  font-size: x-large;
+  color: #f17000;
+}
