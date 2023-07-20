@@ -37,7 +37,7 @@
   color: #364129;
 }
 .menu-text {
-  padding: 0 20px;
+
 }
 .title{
 	border-bottom: 8px solid var(--vert);
@@ -53,7 +53,6 @@
 }
 .logo-titre .logo{
   display: inline-block;
-  margin: auto;
   height: 90%;
 }
 .logo-titre .titre{

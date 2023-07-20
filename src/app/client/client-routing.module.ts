@@ -35,7 +35,7 @@ import {EditContractComponent} from "./components/menu-principal/entreprises/edi
 
 const routes: Routes = [
   {path: '', component: AuthentificationComponent},
-  {path: 'menus-principal', component: MenuPrincipalComponent, canActivate: [AuthGuard], children: [
+  {path: 'menus-principal', component: MenuPrincipalComponent, /*canActivate: [AuthGuard],*/ children: [
     {path: 'dashboard', component: DashboardComponent, children: [
       {path: 'entreprises-graphs', component: EntreprisesGraphsComponent},
       {path: 'structures-graphs', component: StructuresGraphsComponent},

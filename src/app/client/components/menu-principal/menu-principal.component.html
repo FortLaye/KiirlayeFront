@@ -34,23 +34,15 @@
 				</ul>
 			</nav>
 		</div>
-		<div class="col-8 col-xl-10">
+		<div class="col-12 col-xl-10">
 			<div class="header row">
-				<div class="logo-titre col-6">
+
+				<div class="search-help logo-titre col-12">
 					<span class="logo">
 						<img src="assets/images/logo.png" alt="logo" class="h-100">
 					</span>
-					<span class="titre h5 ms-3" *ngIf="user && user !== null">
+          <span class="titre h5 ms-3" *ngIf="user && user !== null">
 						{{user.prenom}} {{ user.nom }}
-					</span>
-				</div>
-				<div class="search-help col-6">
-					<div class="input-box w-50">
-						<input type="search" class="form-control" placeholder="Search">
-						<i class="fa fa-search"></i>
-					</div>
-					<span>
-						<i class="fa-sharp fa-regular fa-circle-question fs-2 mx-3 text-secondary"></i>
 					</span>
 				</div>
 			</div>
