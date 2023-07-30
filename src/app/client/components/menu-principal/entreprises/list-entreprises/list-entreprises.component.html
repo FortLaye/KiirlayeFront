@@ -23,24 +23,21 @@
         <th scope="col">Raison Social</th>
         <th scope="col">Siège Social</th>
         <th scope="col">Téléphone</th>
-        <th scope="col">Ville</th>
         <th scope="col">Ninea</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
-
-        <tr *ngFor="let item of entreprises | paginate:{itemsPerPage:7, currentPage:p}">
-          <td>{{ item.nomEntreprise }}</td>
-          <td>{{ item.adresse.rue_entrprise }}</td>
-          <td>{{ item.numeroTelephone }}</td>
-          <td>{{ item.adresse.ville }}</td>
-          <td>{{ item.ninea }}</td>
-        <td class="d-flex justify-content-between">
-          <i class="bi bi-arrow-up-right-circle-fill" (click)="onShowEntreprise(item.id)"></i>
-          <i class="bi bi-pencil-square" (click)="onEditEntreprise(item.id)"></i>
-          </td>
-      </tr>
+    <tr *ngFor="let item of entreprises">
+      <td>{{item.nomEntreprise}}</td>
+      <td></td>
+      <td>{{item.numeroTelephone}}</td>
+      <td>{{item.ninea}}</td>
+      <td class="d-flex justify-content-between">
+        <i class="bi bi-arrow-up-right-circle-fill" (click)="onShowEntreprise(item.ninea)"></i>
+        <i class="bi bi-pencil-square" (click)="onEditEntreprise(item.ninea)"></i>
+      </td>
+    </tr>
     </tbody>
   </table>
   <pagination-controls (pageChange)=" p = $event"></pagination-controls>

@@ -1,13 +1,14 @@
 export interface Entreprise {
-  id: number
-  nomEntreprise: string
-  adresse: adresse
-  ninea: string
-  numRegCommerce: string
+  numRegistreDeComerce: string
+  raisonSociale: string
+  codeEntreprise: string
+  logo: string
+  isActive: boolean
+  fax: string
   numeroTelephone: string
-  emailEntreprise:string
-  logo:string
-  fax:string
+  email: string
+  nomEntreprise: string
+  ninea: string
 }
 export interface adresse{
   pays: string
@@ -18,12 +19,4 @@ export interface adresse{
   latitude: number
   longitude: number
   etatAdresse: boolean
-}
-
-export interface pageEntreprise{
-  entreprise:Entreprise[]
-  page :number
-  size :number
-  totalPages:number
-
 }

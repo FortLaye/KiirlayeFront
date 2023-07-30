@@ -20,25 +20,25 @@ export class DetailsEntrepriseComponent implements OnInit{
   constructor(private route :ActivatedRoute, private entrepriseService:EntreprisesService, private adherentService:AdherentsService, private router:Router) {
   }
   ngOnInit(): void {
-    const faceSnapId =+this.route.snapshot.params['id']
-    this.entrepriseService.getEntreprise(faceSnapId).subscribe(
+    const Id =this.route.snapshot.params['id']
+    this.entrepriseService.getEntreprise(Id).subscribe(
       (value)=>{
         this.entreprise = value
 
       }
     )
 
-    this.adherentService.getAdherentByEntreprise(faceSnapId).subscribe(
-      (value)=>{
-        console.log(value)
-        this.adherents = value
+    this.adherentService.getAdherentByEntreprise(Id).subscribe(
+      (value: any)=>{
+        console.log(value.data)
+        this.adherents = value.data
         this.loader = false
       }
     )
   }
 
 
-  onShowDetailsAdherents(idAdherents:number) {
+  onShowDetailsAdherents(idAdherents:string) {
     this.router.navigateByUrl(`/client/menus-principal/adherents/details-adherent/${idAdherents}`)
   }
 
@@ -54,11 +54,11 @@ export class DetailsEntrepriseComponent implements OnInit{
     }
   }
 
-  onEditEntreprise(id: number){
+  onEditEntreprise(id: string){
     this.router.navigateByUrl('/client/menus-principal/entreprises/'+id);
   }
 
-  onShowContrat(id: number) {
+  onShowContrat(id: string) {
     this.router.navigateByUrl('/client/menus-principal/entreprises/details-contract/'+id);
   }
 }

@@ -25,7 +25,7 @@ export class EditContractComponent implements OnInit{
           date_entree_vigueur:[this.contract.date_entree_vigueur, Validators.required],
           date_fin_contrat:[this.contract.date_fin_contrat, Validators.required],
           periodicite_contrat:[this.contract.periodicite_contrat, Validators.required],
-          entrepriseClients:[this.contract.entrepriseClients.id, Validators.required],
+          entrepriseClients:[this.contract.entrepriseClients.codeEntreprise, Validators.required],
 
         })
         this.loader = false;

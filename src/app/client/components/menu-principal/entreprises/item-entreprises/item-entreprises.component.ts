@@ -20,7 +20,7 @@ export class ItemEntreprisesComponent implements OnInit{
   constructor(private formBuilder:FormBuilder, private entrepriseService: EntreprisesService, private route : ActivatedRoute, private router: Router) {
   }
   ngOnInit(): void {
-    const id = +this.route.snapshot.params['id']
+    const id = this.route.snapshot.params['id']
     this.entrepriseService.getEntreprise(id).subscribe(
       (value)=>{
         this.entreprise = value
@@ -28,17 +28,17 @@ export class ItemEntreprisesComponent implements OnInit{
         this.coordonneesEntreprise = this.formBuilder.group({
           nomEntreprise:[this.entreprise.nomEntreprise, Validators.required],
           ninea:[this.entreprise.ninea, Validators.required],
-          numRegCommerce:[this.entreprise.numRegCommerce, Validators.required],
+          numRegCommerce:[this.entreprise.numRegistreDeComerce, Validators.required],
           adresse:this.formBuilder.group({
-            pays: [this.entreprise.adresse.pays,Validators.required],
-            region: [this.entreprise.adresse.region,Validators.required],
-            ville: [this.entreprise.adresse.ville,Validators.required],
-            departement: [this.entreprise.adresse.departement,Validators.required],
-            rue_entrprise: [this.entreprise.adresse.rue_entrprise,Validators.required]
+            // pays: [this.entreprise.adresse.pays,Validators.required],
+            // region: [this.entreprise.adresse.region,Validators.required],
+            // ville: [this.entreprise.adresse.ville,Validators.required],
+            // departement: [this.entreprise.adresse.departement,Validators.required],
+            // rue_entrprise: [this.entreprise.adresse.rue_entrprise,Validators.required]
           }),
           numeroTelephone:[this.entreprise.numeroTelephone, Validators.required],
           fax:[this.entreprise.fax, Validators.required],
-          emailEntreprise:[this.entreprise.emailEntreprise, [Validators.required,Validators.email]],
+          emailEntreprise:[this.entreprise.email, [Validators.required,Validators.email]],
         })
         this.loader = false
       }

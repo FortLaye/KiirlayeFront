@@ -49,15 +49,15 @@ export class EditAdherentsComponent implements OnInit{
       value => {
         this.adherent = value
         this.adherentsForm = this.formBuilder.group({
-          userIdd:[this.adherent.userIdd, Validators.required],
+          userIdd:[this.adherent.ridca, Validators.required],
           prenom:[this.adherent.prenom, Validators.required],
           nom:[this.adherent.nom, Validators.required],
           email:[this.adherent.email, Validators.required],
-          tel:[this.adherent.tel, Validators.required],
+          tel:[this.adherent.telephone, Validators.required],
           adresse:[this.adherent.adresse, Validators.required],
-          genre:[this.adherent.genre, Validators.required],
-          lieuNaiss:[this.adherent.lieuNaiss, Validators.required],
-          entrepriseClients:[this.adherent.entrepriseClients.id, Validators.required]
+           genre:[this.adherent.sexe, Validators.required],
+          lieuNaiss:[this.adherent.lieuNais, Validators.required],
+
         })
       }
     )

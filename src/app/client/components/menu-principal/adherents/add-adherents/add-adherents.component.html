@@ -59,7 +59,7 @@
       <div class=" form-floating p-1 col-sm-6">
         <select id="Entreprise-Client" class="form-select" aria-label="Default select example"  placeholder="Selectionner l'entreprise" formControlName="entrepriseClients">
           <option selected>Selectionner l'entreprise</option>
-          <option *ngFor="let entreprise of entreprises" [value]="entreprise.id">{{entreprise.nomEntreprise}}</option>
+          <option *ngFor="let entreprise of entreprises" [value]="entreprise.codeEntreprise">{{entreprise.nomEntreprise}}</option>
         </select>
         <label for="Entreprise-Client">Entreprise</label>
       </div>

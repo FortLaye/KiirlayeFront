@@ -8,11 +8,11 @@ import { AuthentificationService } from "../services/authentification.service";
 export class AuthInterceptor implements HttpInterceptor {
 
 	constructor(private auth: AuthentificationService){}
-	
+
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
 		const headers = new HttpHeaders().append('Authorization', `Bearer ${this.auth.tokenValue}`);
-		
+
 		const modifiedReq = req.clone({ headers });
 		return next.handle(modifiedReq);
 	}

@@ -26,7 +26,7 @@ import { HttpInterceptorProvider } from './client/interceptors';
 
   ],
   providers: [
-    HttpInterceptorProvider,
+    //HttpInterceptorProvider,
     {
       provide:Window,
       useValue: window

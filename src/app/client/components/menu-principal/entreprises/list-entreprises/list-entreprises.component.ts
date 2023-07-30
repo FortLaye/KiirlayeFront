@@ -21,8 +21,9 @@ export class ListEntreprisesComponent implements OnInit{
   ngOnInit(): void {
     console.log(this.loader)
       this.entrepriseService.getAllEntreprises().subscribe(
-        value => {
-          this.entreprises = value
+        (value: any) => {
+          this.entreprises = value.data
+          console.log(this.entreprises)
           this.loader=false
         }
       )
@@ -30,11 +31,11 @@ export class ListEntreprisesComponent implements OnInit{
     console.log(this.loader)
   }
 
-  onEditEntreprise(id: number){
+  onEditEntreprise(id: string){
     this.router.navigateByUrl('/client/menus-principal/entreprises/'+id);
   }
 
-  onShowEntreprise(id: number){
+  onShowEntreprise(id: string){
     this.router.navigateByUrl(`/client/menus-principal/entreprises/details-entreprise/${id}`);
   }
 
@@ -46,7 +47,7 @@ export class ListEntreprisesComponent implements OnInit{
       this.loader = true
     }else {
       this.entreprises = this.entreprises.filter(res =>{
-        return res.nomEntreprise.toLowerCase().match(this.firstName.toLocaleLowerCase()) || res.emailEntreprise.toLowerCase().match(this.firstName.toLocaleLowerCase());
+        return res.nomEntreprise.toLowerCase().match(this.firstName.toLocaleLowerCase()) || res.nomEntreprise.toLowerCase().match(this.firstName.toLocaleLowerCase());
       })
     }
   }

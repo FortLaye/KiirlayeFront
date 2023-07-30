@@ -10,11 +10,11 @@
       <div class="card">
         <div class="card-body">
           <div class="d-flex flex-column align-items-center text-center">
-            <img src="{{adherent.image}}" alt="Admin" class="rounded-circle" width="150">
+            <img src="favicon.ico" alt="Admin" class="rounded-circle" width="150">
             <div class="mt-3">
-              <h4>{{adherent.userIdd}}</h4>
+              <h4>{{adherent.userId}}</h4>
               <h4>{{adherent.prenom}}  {{adherent.nom}}</h4>
-              <p class="text-secondary mb-1">{{adherent.tel}}</p>
+              <p class="text-secondary mb-1">{{adherent.telephone}}</p>
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@
               <h6 class="mb-0 fw-bold"> Date et Lieu de Naissance:</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{adherent.dateNaiss | date}}  {{adherent.lieuNaiss}}
+              {{adherent.dateNais | date}}  {{adherent.lieuNais}}
             </div>
           </div>
           <hr>
@@ -37,7 +37,7 @@
               <h6 class="mb-0 fw-bold">Sexe:</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{adherent.genre}}
+<!--              {{adherent.genre}}-->
             </div>
           </div>
           <hr>
@@ -63,7 +63,7 @@
               <h6 class="mb-0 fw-bold">Convention Collective :</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{adherent.conventionCollective}}
+<!--              {{adherent.conventionCollective}}-->
             </div>
           </div><hr>
           <div class="row">
@@ -71,7 +71,7 @@
               <h6 class="mb-0 fw-bold">Poste :</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{adherent.poste}}
+<!--              {{adherent.poste}}-->
             </div>
           </div><hr>
           <div class="row">
@@ -79,7 +79,7 @@
               <h6 class="mb-0 fw-bold">Entreprise :</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{adherent.entrepriseClients.nomEntreprise}}
+<!--              {{adherent.entrepriseClients.nomEntreprise}}-->
             </div>
           </div><hr>
           <div class="row">
@@ -87,13 +87,13 @@
               <h6 class="mb-0 fw-bold">Email entreprise:</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-              {{adherent.entrepriseClients.emailEntreprise}}
+<!--              {{adherent.entrepriseClients.emailEntreprise}}-->
             </div>
           </div>
           <hr>
           <div class="d-flex justify-content-end row">
             <div class="btn btn-outline-secondary me-2 col-sm-2" routerLink="/client/menus-principal/adherents/list-adherents">Retour</div>
-            <div class="btn btn-outline-warning me-2 col-sm-2" (click)="onEditAdherent(adherent.id)">Modifier</div>
+            <div class="btn btn-outline-warning me-2 col-sm-2" (click)="onEditAdherent(adherent.ridca)">Modifier</div>
 
           </div>
 

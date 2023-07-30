@@ -28,15 +28,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let adherent of adherents | paginate:{itemsPerPage:7, currentPage:p}">
-      <td>{{adherent.userIdd}}</td>
+
+      <td>{{adherent.ridca}}</td>
       <td>{{adherent.prenom}} {{adherent.nom}}</td>
       <td>{{adherent.email}}</td>
-      <td>{{adherent.tel}}</td>
+      <td>{{adherent.telephone}}</td>
       <td>{{adherent.adresse}}</td>
-      <td>{{adherent.dateNaiss | date}} a {{adherent.lieuNaiss}}</td>
+      <td>{{adherent.dateNais | date}} a {{adherent.lieuNais}}</td>
       <td class="d-flex justify-content-between">
-        <i class="bi bi-arrow-up-right-circle-fill" (click)="onShowDetailsAdherents(adherent.id)"></i>
-        <i class="bi bi-pencil-square" (click)="onEditAdherent(adherent.id)"></i>
+        <i class="bi bi-arrow-up-right-circle-fill" (click)="onShowDetailsAdherents(adherent.userId)"></i>
+        <i class="bi bi-pencil-square" (click)="onEditAdherent(adherent.userId)"></i>
       </td>
 
     </tr>

@@ -13,7 +13,7 @@
               <div class="mt-3">
                 <h4>{{entreprise.nomEntreprise}}</h4>
                 <p class="text-secondary mb-1">{{entreprise.numeroTelephone}}</p>
-                <p class="text-muted font-size-sm">{{entreprise.adresse.rue_entrprise}}</p>
+<!--                <p class="text-muted font-size-sm">{{entreprise.adresse}}</p>-->
 <!--                <button class="btn btn-primary"></button>-->
 <!--                <button class="btn btn-outline-primary">Message</button>-->
               </div>
@@ -39,7 +39,7 @@
                 <h6 class="mb-0 fw-bold">Registre De Commerce :</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                {{entreprise.numRegCommerce}}
+                {{entreprise.numRegistreDeComerce}}
               </div>
             </div>
             <hr>
@@ -57,13 +57,13 @@
                 <h6 class="mb-0 fw-bold" >Addresse :</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                {{entreprise.adresse.rue_entrprise}} - {{entreprise.adresse.region}} - {{entreprise.adresse.ville}}
+<!--                {{entreprise.adresse.rue_entrprise}} - {{entreprise.adresse.region}} - {{entreprise.adresse.ville}}-->
               </div>
             </div>
             <hr>
             <div class="row d-flex justify-content-end">
-              <button class="btn btn-outline-warning col-sm-2 me-2" (click)="onShowContrat(entreprise.id)">Contrat</button>
-              <button class="btn btn-outline-secondary col-sm-2 me-2" (click)="onEditEntreprise(entreprise.id)">Modifier</button>
+              <button class="btn btn-outline-warning col-sm-2 me-2" (click)="onShowContrat(entreprise.codeEntreprise)">Contrat</button>
+              <button class="btn btn-outline-secondary col-sm-2 me-2" (click)="onEditEntreprise(entreprise.codeEntreprise)">Modifier</button>
 
             </div>
 
@@ -97,13 +97,13 @@
             </thead>
             <tbody>
             <tr *ngFor="let adherent of adherents | paginate:{itemsPerPage:3, currentPage:p}">
-              <td>{{adherent.userIdd}}</td>
+              <td>{{adherent.ridca}}</td>
               <td>{{adherent.prenom}} {{adherent.nom}}</td>
               <td>{{adherent.email}}</td>
-              <td>{{adherent.tel}}</td>
+              <td>{{adherent.telephone}}</td>
               <td>{{adherent.adresse}}</td>
-              <td>{{adherent.dateNaiss | date}} a {{adherent.lieuNaiss}}</td>
-              <td><i class="bi bi-arrow-up-right-circle-fill" (click)="onShowDetailsAdherents(adherent.id)"></i></td>
+              <td>{{adherent.dateNais | date}} a {{adherent.lieuNais}}</td>
+              <td><i class="bi bi-arrow-up-right-circle-fill" (click)="onShowDetailsAdherents(adherent.ridca)"></i></td>
             </tr>
             </tbody>
           </table>

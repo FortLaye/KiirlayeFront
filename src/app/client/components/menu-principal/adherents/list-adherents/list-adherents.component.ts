@@ -16,8 +16,8 @@ export class ListAdherentsComponent implements OnInit{
   ngOnInit(): void {
     this.adherentService.getAllAdherents().subscribe(
       (value)=>{
-        this.adherents = value
-        console.log(this.adherents)
+        console.log(value.data)
+        this.adherents = value.data
         this.loader = false
       }
     )

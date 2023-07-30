@@ -27,11 +27,11 @@ export class DetailsAdherentsComponent implements OnInit{
 
 
   onShowAdherent(){
-    const id = +this.route.snapshot.params['id']
+    const id = this.route.snapshot.params['id']
     return this.adherentService.getAdherentsById(id);
   }
 
-  onEditAdherent(id: number) {
+  onEditAdherent(id: string) {
     this.router.navigateByUrl(`/client/menus-principal/adherents/${id}`)
   }
 }
