@@ -31,6 +31,9 @@ import {
   DetailsContractComponent
 } from "./components/menu-principal/entreprises/details-contract/details-contract.component";
 import {EditContractComponent} from "./components/menu-principal/entreprises/edit-contract/edit-contract.component";
+import {
+  ListStructuresComponent
+} from "./components/menu-principal/structures/list-structures/list-structures.component";
 
 
 const routes: Routes = [
@@ -59,7 +62,9 @@ const routes: Routes = [
            {path: ':id', component: EditAdherentsComponent}
         ]
       },
-    {path: 'structures', component: StructuresComponent}
+    {path: 'structures', component: StructuresComponent , children:[
+        {path: 'list-structures',component: ListStructuresComponent}
+      ]}
   ]},
   {path: 'login', component: AuthentificationComponent},
   {path: '**', redirectTo: 'login'}
