@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {EntreprisesService} from "../../../../services/entreprises.service";
 import {AdherentsService} from "../../../../services/adherents.service";
 import {Adherent} from "../../../../models/adherents";
+import {AyantDroitService} from "../../../../services/ayant-droit.service";
+import {AyantDroit} from "../../../../models/ayantDroit";
 
 @Component({
   selector: 'app-details-adherents',
@@ -12,7 +14,9 @@ import {Adherent} from "../../../../models/adherents";
 export class DetailsAdherentsComponent implements OnInit{
   loader:boolean = true
   adherent!: Adherent
+  ayantDroits!: AyantDroit
   ngOnInit(): void {
+    const id = +this.route.snapshot.params['id']
     this.onShowAdherent().subscribe(
       (value)=> {
         console.log(value)
@@ -20,9 +24,14 @@ export class DetailsAdherentsComponent implements OnInit{
         this.loader = false
       }
     )
+    this.ayantdroit.getAyentDroitByAdherents(id).subscribe(
+      value => {
+        this.ayantDroits = value.data
+      }
+    )
   }
 
-  constructor(private route: ActivatedRoute,private adherentService:AdherentsService,private router:Router) {
+  constructor(private route: ActivatedRoute,private adherentService:AdherentsService,private router:Router, private ayantdroit:AyantDroitService) {
   }
 
 

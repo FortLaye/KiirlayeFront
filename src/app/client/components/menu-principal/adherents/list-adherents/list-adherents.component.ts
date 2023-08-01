@@ -15,9 +15,13 @@ export class ListAdherentsComponent implements OnInit{
   p:number = 1
   ngOnInit(): void {
     this.adherentService.getAllAdherents().subscribe(
-      (value)=>{
+      (value:any)=>{
         console.log(value.data)
         this.adherents = value.data
+        this.loader = false
+      },error => {
+        console.log(error)
+        alert(error)
         this.loader = false
       }
     )

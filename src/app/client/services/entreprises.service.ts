@@ -22,6 +22,10 @@ export class EntreprisesService {
     return this.http.post<Entreprise>(`${environment.apiUrl}/entreprises/agent/${id}/add`,entreprise)
   }
 
+  postEntreprises(entreprise:Entreprise){
+    return this.http.post<Entreprise>(`${environment.backUrl}/entrepriseClients/add`,entreprise)
+  }
+
   getEntreprise(id: string) {
     return this.http.get<Entreprise>(`${environment.backUrl}/entrepriseClients/${id}`)
   }

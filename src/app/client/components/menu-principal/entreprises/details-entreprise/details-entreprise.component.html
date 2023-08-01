@@ -3,8 +3,33 @@
     <div id="loader"></div>
   </div>
   <div class="main-body" *ngIf="entreprise && adherents">
-    <i class="bi bi-arrow-left-short" style="font-size: xx-large" routerLink="/client/menus-principal/entreprises/list-entreprises"></i>
-    <div class="row gutters-sm">
+    <i class="bi bi-arrow-left-short" style="font-size: xx-large" routerLink="/client/menus-principal/entreprises/list-entreprises">{{entreprise.nomEntreprise}}</i>
+
+
+
+  </div>
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="nav-item ">
+    <a class="nav-link active " data-bs-toggle="tab" href="#home">Acceuil</a>
+  </li>
+  <li class="nav-item ">
+    <a class="nav-link" data-bs-toggle="tab" href="#menu1">Adherents</a>
+  </li>
+  <li class="nav-item ">
+    <a class="nav-link" data-bs-toggle="tab" href="#menu2">Dossier</a>
+  </li>
+  <li class="nav-item ">
+    <a class="nav-link" data-bs-toggle="tab" href="#menu3">Contrat</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+    <div class="row gutters-sm p-2">
       <div class="col-md-4 mb-3">
         <div class="card">
           <div class="card-body">
@@ -13,9 +38,6 @@
               <div class="mt-3">
                 <h4>{{entreprise.nomEntreprise}}</h4>
                 <p class="text-secondary mb-1">{{entreprise.numeroTelephone}}</p>
-<!--                <p class="text-muted font-size-sm">{{entreprise.adresse}}</p>-->
-<!--                <button class="btn btn-primary"></button>-->
-<!--                <button class="btn btn-outline-primary">Message</button>-->
               </div>
             </div>
           </div>
@@ -57,7 +79,7 @@
                 <h6 class="mb-0 fw-bold" >Addresse :</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-<!--                {{entreprise.adresse.rue_entrprise}} - {{entreprise.adresse.region}} - {{entreprise.adresse.ville}}-->
+                <!--                {{entreprise.adresse.rue_entrprise}} - {{entreprise.adresse.region}} - {{entreprise.adresse.ville}}-->
               </div>
             </div>
             <hr>
@@ -71,7 +93,9 @@
         </div>
       </div>
     </div>
-    <div class="row gutters-sm">
+  </div>
+  <div class="tab-pane fade" id="menu1">
+    <div class="row gutters-sm p-2">
       <div class="col-sm-12">
         <h3>Adherents </h3>
         <nav class="row mb-2 d-flex justify-content-between">
@@ -116,4 +140,6 @@
       </div>
     </div>
   </div>
-
+  <div class="tab-pane  fade" id="menu2">Dossier</div>
+  <div class="tab-pane  fade" id="menu3">Contrat</div>
+</div>

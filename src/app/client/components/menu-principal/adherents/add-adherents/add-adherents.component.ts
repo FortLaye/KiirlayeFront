@@ -5,6 +5,7 @@ import {Entreprise} from "../../../../models/entreprise";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Adherent} from "../../../../models/adherents";
+import Swal from 'sweetalert2'
 import jwt_decode from "jwt-decode";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 
@@ -20,21 +21,27 @@ export class AddAdherentsComponent implements OnInit{
   adherent!: Adherent
   ngOnInit(): void {
     this.entrepriserService.getAllEntreprises().subscribe(
-      (value)=> {
-        this.entreprises = value
+      (value:any)=> {
+        this.entreprises = value.data
         this.loader = false
       }
     )
     this.adherentsForm = this.formBuilder.group({
-      userIdd:['', Validators.required],
+      ridca:['', Validators.required],
       prenom:['', Validators.required],
       nom:['', Validators.required],
-      email:['', Validators.required],
-      tel:['', Validators.required],
-      adresse:['', Validators.required],
-      genre:['Masculin', Validators.required],
-      lieuNaiss:['', Validators.required],
-      entrepriseClients:['', Validators.required]
+      emailPro:['', Validators.required],
+      telephonePro:['', Validators.required],
+      sexe:['MASCULIN', Validators.required],
+      lieuNais:['', Validators.required],
+      poste:['', Validators.required],
+      categorie:['B1', Validators.required],
+      DateEmbauche:['', Validators.required],
+      numCNI:['', Validators.required],
+      nbreEnfant:['', Validators.required],
+      dateNais:['', Validators.required],
+      sitMatrimoniale:['MARIE', Validators.required],
+      nbreEpouse:['', Validators.required],
     })
 
   }
@@ -45,18 +52,41 @@ export class AddAdherentsComponent implements OnInit{
               private router : Router) {
   }
   onSave(){
-    if (this.adherentsForm.valid){
+    // if (this.adherentsForm.valid){
+    //   this.adherent = this.adherentsForm.value
+    //   console.log(this.adherent)
+    //   const decodeToken: any = jwt_decode(localStorage.getItem('token')!)
+    //   const idAgent = decodeToken.jti
+    //   this.adherentService.postAdherents(this.adherent, idAgent).subscribe(
+    //     ()=>{
+    //       this.router.navigateByUrl('/client/menus-principal/adherents/list-adherents')
+    //     }
+    //   )
+    //
+    // }
+
+    if(this.adherentsForm.valid){
       this.adherent = this.adherentsForm.value
       console.log(this.adherent)
-      const decodeToken: any = jwt_decode(localStorage.getItem('token')!)
-      const idAgent = decodeToken.jti
-      this.adherentService.postAdherents(this.adherent, idAgent).subscribe(
+      this.adherentService.postAdherent(this.adherentsForm.value).subscribe(
         ()=>{
+          Swal.fire({
+            title: `Ajouter avec Success`,
+            text: `${this.adherent.prenom} avec le Matricule ${this.adherent.ridca}`,
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000
+          })
           this.router.navigateByUrl('/client/menus-principal/adherents/list-adherents')
+
+        },error=>{
+          alert(error)
         }
       )
 
     }
+    console.log(this.adherentsForm.value)
+
 
 
   }

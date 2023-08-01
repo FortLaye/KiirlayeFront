@@ -1,6 +1,5 @@
 export interface Entreprise {
   numRegistreDeComerce: string
-  raisonSociale: string
   codeEntreprise: string
   logo: string
   isActive: boolean

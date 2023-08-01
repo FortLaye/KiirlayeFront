@@ -20,9 +20,9 @@ export interface Adherent {
   ridca: string
   DateNais: string
   adresse: any
-  poste: any
+  poste: string
   DateEmbauche: string
-  sexe: any
+  sexe: string
   categorie: string
   dateEmbauche: string
   dateNais: string
@@ -32,7 +32,7 @@ export interface Adherent {
   numCNI: string
   lieuNais: string
   emailPro: string
-  estActif: any
+  estActif: boolean
   nbreEpouse: string
   password: string
   email: string

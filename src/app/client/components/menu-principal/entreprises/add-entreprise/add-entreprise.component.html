@@ -1,242 +1,142 @@
-
-<div  class="container p-3 border border-2 border-secondary-subtle rounded-4 mt-3">
-  <!--   ############## Progress Bar View  Start ###########################-->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-
-    <div class="d-none d-sm-block">
-      <ul class="step-wizard-list">
-        <li id="step1" class="step-wizard-item" [ngClass]="{'current-item': step === 1 }">
-          <span class="progress-count">1</span>
-          <span class="progress-label">Coordonnees et information legale</span>
-        </li>
-        <li id="step2" class="step-wizard-item" [ngClass]="{'current-item': step === 2 }">
-          <span class="progress-count">2</span>
-          <span class="progress-label">Responsable</span>
-        </li>
-        <li id="step3" class="step-wizard-item" [ngClass]="{'current-item': step === 3 }">
-          <span class="progress-count">3</span>
-          <span class="progress-label">Contrat</span>
-        </li>
-
-      </ul>
-    </div>
-
-  <!--   ############## Progress Bar View  end ###########################-->
-
-  <form *ngIf="step == 1" name="myform"[formGroup]="coordonnees" class="form-group">
+<h1 class="text-center">Ajouter un entreprise</h1>
+<form name="myform"[formGroup]="entrepriseForm" class="form-group">
       <div class="row mb-2 ">
         <div class="col-md-12 mt-3">
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Raison Social" formControlName="nomEntreprise" >
+            <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>
+            <div class="form-floating">
+              <input class="form-control rounded-end" type="text" placeholder="Raison Social" formControlName="nomEntreprise" id="nomDelentreprise">
+              <label for="nomDelentreprise" > Raison Social</label>
+            </div>
           </div>
           </div>
       </div>
-      <div class="row mb-2 gy-4">
+      <div class="row mt-3">
         <div class="col-md-6 ">
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Ninea" formControlName="ninea" >
+            <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>
+            <div class="form-floating">
+              <input class="form-control rounded-end" type="text" placeholder="Ninea" formControlName="ninea"  id="ninea">
+              <label for="ninea" > Ninea</label>
+            </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 ">
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Registre De Commerce" formControlName="numRegCommerce" >
+            <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>
+            <div class="form-floating">
+              <input class="form-control rounded-end" type="text" placeholder="Registre De Commerce" formControlName="codeEntreprise"  id="codeEntreprise">
+              <label for="codeEntreprise" > Code de l'entreprise</label>
+            </div>
           </div>
         </div>
+          <div class="col-md-6 mt-3">
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>
+              <div class="form-floating">
+                <input class="form-control rounded-end" type="text" placeholder="Registre De Commerce" formControlName="numRegistreDeComerce"  id="numRegistreDeComerce">
+                <label for="numRegistreDeComerce" >Numero de registre de commerce</label>
+              </div>
+            </div>
+          </div>
       </div>
 
 
-      <div class="row p-3" formGroupName="adresse">
-        <div class="col-sm-12 border border-secondary-subtle rounded-4 ">
-          <div class="mt-n2 col-sm-1"><span class="ms-3">Adresse</span></div>
-          <div class="row mb-2 mt-1 gy-4">
-            <div class="col-sm-6">
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Pays" formControlName="pays" >
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Region" formControlName="region" >
-              </div>
-            </div>
-          </div>
-          <div class="row mb-2 gy-4">
-            <div class="col-sm-6">
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Ville" formControlName="ville" >
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Departement" formControlName="departement" >
-              </div>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-sm-12">
-              <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-                <input class="form-control rounded-end" type="text" placeholder="Rue de l'entreprise" formControlName="rue_entrprise">
-              </div>
-            </div>
-          </div>
-        </div>
-        <!---->
+<!--      <div class="row p-3" formGroupName="adresse">-->
+<!--        <div class="col-sm-12 border border-secondary-subtle rounded-4 p-3">-->
+<!--          <div class="mt-n2 col-sm-1"><span class="ms-3">Adresse</span></div>-->
+<!--          <div class="row mt-3">-->
+<!--            <div class="col-md-6 ">-->
+<!--              <div class="input-group">-->
+<!--                <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>-->
+<!--                <div class="form-floating">-->
+<!--                  <input class="form-control rounded-end" type="text" placeholder="Pays " formControlName="ninea"  id="Pays">-->
+<!--                  <label for="pays" > Pays</label>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6 ">-->
+<!--              <div class="input-group">-->
+<!--                <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>-->
+<!--                <div class="form-floating">-->
+<!--                  <input class="form-control rounded-end" type="text" placeholder="Pays " formControlName="ninea"  id="Region">-->
+<!--                  <label for="Region" > Region</label>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
 
-      </div>
-      <div class="row  gy-2">
-        <div class="col-sm-6">
+<!--          </div>-->
+<!--          <div class="row mt-3">-->
+<!--            <div class="col-md-6 ">-->
+<!--              <div class="input-group">-->
+<!--                <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>-->
+<!--                <div class="form-floating">-->
+<!--                  <input class="form-control rounded-end" type="text" placeholder="Ville " formControlName="ninea"  id="Ville">-->
+<!--                  <label for="Ville" > Ville</label>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6 ">-->
+<!--              <div class="input-group">-->
+<!--                <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>-->
+<!--                <div class="form-floating">-->
+<!--                  <input class="form-control rounded-end" type="text" placeholder="Departement " formControlName="ninea"  id="Departement">-->
+<!--                  <label for="Departement" > Departement</label>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--          </div>-->
+
+<!--          <div class="row mt-3">-->
+<!--            <div class="col-sm-12">-->
+<!--              <div class="input-group">-->
+<!--                <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>-->
+<!--                <div class="form-floating">-->
+<!--                <input class="form-control rounded-end" type="text" placeholder="Rue de l'entreprise" formControlName="rue_entrprise" id="rue_entreprise">-->
+<!--                  <label for="rue_entreprise" > Rue de l'entreprise</label>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash;&ndash;&gt;-->
+
+<!--      </div>-->
+      <div class="row mt-2 gy-4">
+        <div class="col-md-6 ">
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="N Telephone" formControlName="numeroTelephone" >
+            <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>
+            <div class="form-floating">
+              <input class="form-control rounded-end" type="text" placeholder="Telephone " formControlName="numeroTelephone"  id="Telephone">
+              <label for="Telephone" > Telephone</label>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-md-6 ">
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Fax" formControlName="fax" >
+            <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>
+            <div class="form-floating">
+              <input class="form-control rounded-end" type="text" placeholder="Departement " formControlName="fax"  id="Fax">
+              <label for="Fax" > Fax</label>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-md-6 ">
           <div class="input-group">
-            <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-            <input class="form-control rounded-end" type="text" placeholder="Email" formControlName="emailEntreprise" >
+            <span class="input-group-text"><i class="bi bi-building-fill-down ps-2 pe-2 fs-4"></i></span>
+            <div class="form-floating">
+              <input class="form-control rounded-end" type="text" placeholder="@ridwangroup.com" formControlName="email"  id="Email">
+              <label for="Email"> @ridwangroup.com</label>
+            </div>
           </div>
         </div>
       </div>
 
     <div class="d-flex mt-4 justify-content-between">
-      <button class="btn btn-success" routerLink="/client/menus-principal/entreprises/list-entreprises">Annuler</button>
-      <button class="btn btn-success" (click)="addEntreprise()">Suivant</button>
+      <button class="ps-5 pe-5 btn btn-outline-secondary" routerLink="/client/menus-principal/entreprises/list-entreprises">Annuler</button>
+      <button class="ps-5 pe-5 btn btn-outline-success" (click)="addEntreprise()">Enregistrer</button>
     </div>
   </form>
 
 
-
-
-<!--##################################Formulaire Responsable ############################!-->
-
-  <form *ngIf="step === 2" name="myform"[formGroup]="responsable" class="form-group">
-    <div class="row mb-2 ">
-      <div class="col-md-6 mt-3">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Prenom" formControlName="prenom" [ngClass]="{'is-invalid': responsable_step && responsable.controls['prenom']!.errors}">
-        </div>
-      </div>
-      <div class="col-md-6 mt-3">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="nom" formControlName="nom" [ngClass]="{'is-invalid': responsable_step && responsable.controls['nom']!.errors}">
-        </div>
-      </div>
-    </div>
-    <div class="row mb-2 gy-4">
-      <div class="col-md-6 ">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Telephone" formControlName="numeroTelephone" [ngClass]="{'is-invalid': responsable_step && responsable.controls['telephone']!.errors}">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Fixe" formControlName="fax" [ngClass]="{'is-invalid': responsable_step && responsable.controls['fixe']!.errors}">
-        </div>
-      </div>
-    </div>
-    <div class="row mt-2 gy-4">
-      <div class="col-sm-6">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="email" placeholder="E-Mail" formControlName="emailEntreprise" [ngClass]="{'is-invalid': responsable_step && responsable.controls['mail']!.errors}">
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Fonction" formControlName="fonction" [ngClass]="{'is-invalid': responsable_step && responsable.controls['fonction']!.errors}">
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Photo" formControlName="photoResponsable" [ngClass]="{'is-invalid': responsable_step && responsable.controls['photoResponsable']!.errors}">
-        </div>
-      </div>
-    </div>
-
-
-    <div class="d-flex mt-4 justify-content-between">
-      <button class="btn btn-success">Annuler</button>
-      <button class="btn btn-success" (click)="previous()">Precedent</button>
-      <button class="btn btn-success ms-4" (click)="next()">Suivant</button>
-    </div>
-  </form>
-
-
-
-  <!--##################################Formulaire Contrat ############################!-->
-
-  <form *ngIf="step === 3" name="myform"[formGroup]="contrat" class="form-group">
-    <div class="row mb-2 ">
-      <div class="col-md-6 mt-3">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Date De Signature" formControlName="dateDeSignature"  [ngClass]="{'is-invalid': contrat_step && contrat.controls['dateDeSignature']!.errors}">
-        </div>
-      </div>
-      <div class="col-md-6 mt-3">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Copie Contrat" formControlName="copieDucontrat" [ngClass]="{'is-invalid': contrat_step && contrat.controls['copieDucontrat']!.errors}">
-        </div>
-      </div>
-
-    </div>
-    <div class="row mb-2 gy-4">
-      <div class="col-md-6 ">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Date d'entre en Vigueur" formControlName="dateDentreeEnVigueur" [ngClass]="{'is-invalid': contrat_step && contrat.controls['dateDentreeEnVigueur']!.errors}">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Date De fin" formControlName="dateDeFin" [ngClass]="{'is-invalid': contrat_step && contrat.controls['dateDeFin']!.errors}">
-        </div>
-      </div>
-    </div>
-
-    <div class="row mt-2 gy-4">
-      <div class="col-sm-6">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Periodicite du contrat" formControlName="periodiciteDeFacturation" [ngClass]="{'is-invalid': contrat_step && contrat.controls['periodiciteDeFacturation']!.errors}">
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-building-fill-down"></i></span>
-          <input class="form-control rounded-end" type="text" placeholder="Type d'offre" formControlName="typedoffre" [ngClass]="{'is-invalid': contrat_step && contrat.controls['typedoffre']!.errors}">
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex mt-4 justify-content-between">
-      <button class="btn btn-success">Annuler</button>
-      <button class="btn btn-success" (click)="previous()">Precedent</button>
-      <button class="btn btn-success ms-4" (click)="submit()">Enregistrer</button>
-    </div>
-  </form>
-</div>

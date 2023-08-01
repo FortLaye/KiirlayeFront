@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {EntreprisesService} from "../../../../services/entreprises.service";
 import {Router} from "@angular/router";
 import jwt_decode from "jwt-decode";
+import {Entreprise} from "../../../../models/entreprise";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-add-entreprise',
@@ -11,113 +13,72 @@ import jwt_decode from "jwt-decode";
 })
 export class AddEntrepriseComponent implements OnInit{
 
-  coordonnees!: FormGroup
-  responsable!: FormGroup
-  contrat!: FormGroup
-
-  coordonnees_step: boolean = false;
-  responsable_step: boolean = false;
-  contrat_step: boolean = false;
-  step = 1
-  currentItem = ''
+  entrepriseForm!: FormGroup
+  entreprise!:Entreprise
 
   constructor(private formBuilder: FormBuilder, private entrepriseService:EntreprisesService, private router:Router) {
   }
   ngOnInit(): void {
-    this.coordonnees = this.formBuilder.group({
+    // this.entrepriseForm = this.formBuilder.group({
+    //   nomEntreprise:['', Validators.required],
+    //   ninea:['', Validators.required],
+    //   numRegCommerce:['', Validators.required],
+    //   adresse:this.formBuilder.group({
+    //     pays: ['',Validators.required],
+    //     region: ['',Validators.required],
+    //     ville: ['',Validators.required],
+    //     departement: ['',Validators.required],
+    //     rue_entrprise: ['',Validators.required]
+    //   }),
+    //   numeroTelephone:['', Validators.required],
+    //   fax:['', Validators.required],
+    //   emailEntreprise:['', [Validators.required,Validators.email]],
+    // })
+
+    this.entrepriseForm = this.formBuilder.group({
       nomEntreprise:['', Validators.required],
-      ninea:['', Validators.required],
-      numRegCommerce:['', Validators.required],
-      adresse:this.formBuilder.group({
-        pays: ['',Validators.required],
-        region: ['',Validators.required],
-        ville: ['',Validators.required],
-        departement: ['',Validators.required],
-        rue_entrprise: ['',Validators.required]
-      }),
-      numeroTelephone:['', Validators.required],
-      fax:['', Validators.required],
-      emailEntreprise:['', [Validators.required,Validators.email]],
+      codeEntreprise:['',Validators.required],
+      numRegistreDeComerce:['',Validators.required],
+      numeroTelephone:['',Validators.required],
+      email:['',Validators.required],
+      fax:['',Validators.required],
+      ninea:['',Validators.required],
     })
 
-    this.responsable = this.formBuilder.group({
-      prenom:['',Validators.required],
-      nom:['',Validators.required],
-      telephone:['',Validators.required],
-      fixe:[''],
-      mail:[''],
-      fonction:[''],
-      copieCNI:[''],
-      photoResponsable:['']
 
-    })
-
-    this.contrat = this.formBuilder.group({
-      dateDeSignature:['',Validators.required],
-      copieDucontrat:[''],
-      dateDentreeEnVigueur:['',Validators.required],
-      dateDeFin:['',Validators.required],
-      periodiciteDeFacturation:['',Validators.required],
-      typedoffre:['',Validators.required]
-    })
   }
 
   addEntreprise(){
-    const decodedToken: any = jwt_decode(localStorage.getItem('token')!)
-    console.log(decodedToken.jti)
-    console.log(this.coordonnees.value)
-    if(this.coordonnees.valid){
-    this.entrepriseService.postEntreprise(this.coordonnees.value,decodedToken.jti).subscribe(
-      ()=>{
-        this.router.navigateByUrl('/client/menus-principal/entreprises/list-entreprises')
-      }
-    )
-    }
-  }
-  get coordonnees_details(){
-    return this.coordonnees.controls;
-  }
-  get responsables_details(){
-    return this.responsable.controls;
-  }
+    // const decodedToken: any = jwt_decode(localStorage.getItem('token')!)
+    // console.log(decodedToken.jti)
+    // console.log(this.entrepriseForm.value)
+    // if(this.entrepriseForm.valid){
+    // this.entrepriseService.postEntreprise(this.entrepriseForm.value,decodedToken.jti).subscribe(
+    //   ()=>{
+    //     this.router.navigateByUrl('/client/menus-principal/entreprises/list-entreprises')
+    //   }
+    // )
+    // }
+    if(this.entrepriseForm.valid){
+      this.entreprise = this.entrepriseForm.value
+      this.entrepriseService.postEntreprises(this.entreprise).subscribe(
+        ()=>{
 
-  get contrats_details(){
-    return this.contrat.controls;
-  }
+          Swal.fire({
+            title: `Ajouter avec Success`,
+            text: `${this.entreprise.nomEntreprise} avec le code ${this.entreprise.codeEntreprise}`,
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000
+          })
 
-  next(){
-    if (this.step === 1){
-      this.coordonnees_step = true;
-      if (this.coordonnees.invalid){return }
-      this.step++
-      return
+          this.router.navigateByUrl('/client/menus-principal/entreprises/list-entreprises')
+        },err => {
+          alert(err)
+        }
+      )
     }
-
-    if (this.step === 2){
-      this.responsable_step = true;
-      if (this.responsable.invalid){return}
-        this.step++
-    }
-  }
-
-  previous(){
-    this.step--
-    if (this.step == 1){
-      this.coordonnees_step = false
-    }
-    if (this.step == 2){
-      this.responsable_step = false;
-    }
-  }
-
-
-  submit(){
-    if (this.step === 3){
-      this.contrat_step = true ;
-      if(this.contrat.invalid){
-        return
-      }
-    }
+    console.log(this.entrepriseForm.value)
   }
 
 }

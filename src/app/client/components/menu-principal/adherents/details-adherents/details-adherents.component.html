@@ -25,6 +25,15 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-3">
+              <h6 class="mb-0 fw-bold">Matricule :</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+              {{adherent.ridca}}
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
               <h6 class="mb-0 fw-bold"> Date et Lieu de Naissance:</h6>
             </div>
             <div class="col-sm-9 text-secondary">
@@ -37,7 +46,7 @@
               <h6 class="mb-0 fw-bold">Sexe:</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-<!--              {{adherent.genre}}-->
+              {{adherent.sexe}}
             </div>
           </div>
           <hr>
@@ -57,15 +66,8 @@
             <div class="col-sm-9 text-secondary">
               {{adherent.email}}
             </div>
-          </div><hr>
-          <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0 fw-bold">Convention Collective :</h6>
-            </div>
-            <div class="col-sm-9 text-secondary">
-<!--              {{adherent.conventionCollective}}-->
-            </div>
-          </div><hr>
+          </div>
+          <hr>
           <div class="row">
             <div class="col-sm-3">
               <h6 class="mb-0 fw-bold">Poste :</h6>

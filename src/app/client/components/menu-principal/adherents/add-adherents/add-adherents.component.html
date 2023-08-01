@@ -10,7 +10,7 @@
   <form [formGroup]="adherentsForm">
     <div class="row d-flex justify-content-around mb-2">
       <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="matricule" formControlName="userIdd" placeholder="matricule">
+        <input type="text" class="form-control" id="matricule" formControlName="ridca" placeholder="matricule">
         <label for="matricule">Matricule de l'adherent</label>
       </div>
 
@@ -27,50 +27,94 @@
     </div>
     <div class="row mb-2">
       <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="email" formControlName="email" placeholder="Adresse mail">
-        <label for="email"> Adresse Email</label>
+        <input type="text" class="form-control" id="email" formControlName="emailPro" placeholder="@ridwangroup.com">
+        <label for="email"> @ridwangroup.com</label>
       </div>
 
-    </div>
-    <div class="row mb-2">
-      <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="telephone" formControlName="tel" placeholder="Numero de l'adherent">
-        <label for="telephone">Numero de l'adherent</label>
-      </div>
-      <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="adresse" formControlName="adresse" placeholder="Adresse">
-        <label for="adresse">Adresse</label>
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class=" form-floating p-1 col-sm-6">
-        <select id="genre" class="form-select" aria-label="Default select example" formControlName="genre">
-          <option value="Masculin"> Masculin</option>
-          <option value="Feminin"> Feminin</option>
+      <div class="form-floating p-1 col-sm-6">
+        <select id="categorie" class="form-select" aria-label="Default select example" formControlName="categorie">
+          <option value="B1" selected> B1</option>
+          <option value="B2"> B2</option>
         </select>
-        <label for="genre">Genre</label>
-      </div>
-      <div class=" form-floating p-1 col-sm-6">
-        <input type="text" class="form-control" id="lieu" formControlName="lieuNaiss" placeholder="Lieu">
-        <label for="lieu">Lieu de naissance</label>
+        <label for="categorie">Cathegorie</label>
       </div>
     </div>
     <div class="row mb-2">
       <div class=" form-floating p-1 col-sm-6">
-        <select id="Entreprise-Client" class="form-select" aria-label="Default select example"  placeholder="Selectionner l'entreprise" formControlName="entrepriseClients">
-          <option selected>Selectionner l'entreprise</option>
-          <option *ngFor="let entreprise of entreprises" [value]="entreprise.codeEntreprise">{{entreprise.nomEntreprise}}</option>
-        </select>
-        <label for="Entreprise-Client">Entreprise</label>
+        <input type="text" class="form-control" id="telephonePro" formControlName="telephonePro" placeholder="Numero de l'adherent">
+        <label for="telephonePro">Numero de l'adherent professionnel</label>
       </div>
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="poste" formControlName="poste" placeholder="Poste">
+        <label for="poste">Poste</label>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <select id="sexe" class="form-select" aria-label="Default select example" formControlName="sexe">
+          <option value="MASCULIN" selected> Masculin</option>
+          <option value="FEMININ"> Feminin</option>
+        </select>
+        <label for="sexe">Genre</label>
+      </div>
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="date" class="form-control" id="dateNais" formControlName="dateNais" placeholder="Date de Naissance">
+        <label for="dateNais">Date De Naissance</label>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="lieuNais" formControlName="lieuNais" placeholder="Lieu de Naissance">
+        <label for="lieuNais">Lieu de naissance</label>
+      </div>
+      <div class="form-floating p-1 col-sm-6">
+        <select id="sitMatrimoniale" class="form-select" aria-label="Default select example" formControlName="sitMatrimoniale">
+          <option value="MARIE" selected> Marie</option>
+          <option value="CELIBATAIRE"> Celibataire</option>
+        </select>
+        <label for="sitMatrimoniale">Situation Matrimonial</label>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="date" class="form-control" id="DateEmbauche" formControlName="DateEmbauche" placeholder="Date D'empbauche">
+        <label for="DateEmbauche">Date D'embauche</label>
+      </div>
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="text" class="form-control" id="numCNI" formControlName="numCNI" placeholder="Numero CNI">
+        <label for="numCNI">Numero CNI</label>
+      </div>
+    </div>
+    <div class="row mb-2">
+
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="number" class="form-control" id="nbreEpouse" formControlName="nbreEpouse" placeholder="Nombre d'epouse">
+        <label for="nbreEpouse">Numero d'epouse</label>
+      </div>
+      <div class=" form-floating p-1 col-sm-6">
+        <input type="number" class="form-control" id="nbreEnfant" formControlName="nbreEnfant" placeholder="Nombre d'enfant">
+        <label for="nbreEnfant">Numero d'enfant</label>
+      </div>
+    </div>
+    <div class="row mb-2">
 
     </div>
-    <div class="row mt-5 d-flex justify-content-between">
+<!--    <div class="row mb-2">-->
+<!--      <div class=" form-floating p-1 col-sm-6">-->
+<!--        <select id="Entreprise-Client" class="form-select" aria-label="Default select example"  placeholder="Selectionner l'entreprise" formControlName="entrepriseClients">-->
+<!--          <option selected>Selectionner l'entreprise</option>-->
+<!--          <option *ngFor="let entreprise of entreprises" [value]="entreprise.codeEntreprise">{{entreprise.nomEntreprise}}</option>-->
+<!--        </select>-->
+<!--        <label for="Entreprise-Client">Entreprise</label>-->
+<!--      </div>-->
+
+<!--    </div>-->
+    <div class="row mt-2 d-flex justify-content-between">
       <div class=" col-sm-2 ">
-        <button class="ps-3 pe-3 btn btn-outline-secondary" routerLink="/client/menus-principal/adherents/list-adherents">Fermer</button>
+        <button class="ps-5 pe-5 btn btn-outline-secondary" routerLink="/client/menus-principal/adherents/list-adherents">Fermer</button>
       </div>
       <div class="col-sm-2">
-        <button type="button" class="ps-3 pe-3 btn btn-outline-success" (click)="onSave()" [disabled]="adherentsForm.invalid">Enregistrer</button>
+        <button type="button" class="ps-5 pe-5 btn btn-outline-success" (click)="onSave()" [disabled]="adherentsForm.invalid">Enregistrer</button>
       </div>
 
     </div>
